@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: violet;
+        }
+        .card-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            flex-wrap: wrap;
+            padding: 40px 0px;
+        }
+        .card-container .card{
+            position: relative;
+            min-width: 320px;
+            height: 440px;
+            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+            inset -5px -5px 5px rgba(255, 255, 255, 0.5),
+            -5px -5px 5px rgba(0, 0, 0, 0.05),
+            -5px -5px 5px rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            margin: 30px;
+        }
+        .card-container .card .box{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background-color: #ebf5fc;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .card-container .card:hover .box{
+            transform: translateY(-50px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #b95ce4, #4fe456);
+            transition: 0.5s;
+            
+        }
+        .card-container .card .box .content{
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container .card .box .content h2{
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            font-size: 8em;
+            color: rgba(0, 0, 0, 0.02);
+            transition: 0.5s;
+        }
+        .card-container .card:hover .box .content h2{
+            color: rgba(0, 0, 0, 0.05);
+        }
+        .card-container .card .box .content h3{
+            font-size: 1.8em;
+            color: #777;
+            transition: 0.5s;
+        }
+        .card-container .card:hover .box .content h3{
+            color: #fff;
+        }
+        .card-container .card .box .content p{
+            font-size: 1em;
+            font-weight: 300;
+            color: #777;
+            z-index: -1;
+            transition: 0.5s;
+        }
+        .card-container .card:hover .box .content h3,
+        .card-container .card:hover .box .content p{
+            color: #fff;
+        }
+        .card-container .card .box .content a{
+            position: relative;
+            display: inline-block;
+            padding: 8px 20px;
+            background: #03aff4;
+            margin-top: 15px;
+            border-radius: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+        }
+        .card-container .card .box .content a:hover{
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <h2>01</h2>
+                    <h3>Card One</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis consequuntur assumenda libero expedita exercitationem aperiam dolorum at sapiente tenetur molestiae.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <h2>02</h2>
+                    <h3>Card Two</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis consequuntur assumenda libero expedita exercitationem aperiam dolorum at sapiente tenetur molestiae.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <h2>03</h2>
+                    <h3>Card Three</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis consequuntur assumenda libero expedita exercitationem aperiam dolorum at sapiente tenetur molestiae.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
