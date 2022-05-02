@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to VFA</title>
+    <!-- box-Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Root CSS -->
+    <link rel="stylesheet" href="./css/root.css">
+    <!-- Bottom navigation CSS -->
+    <link rel="stylesheet" href="./css/bottom-navigation.css?v=52">
+    <!-- Top Navigation  -->
+    <link rel="stylesheet" href="./css/top-nav.css">
+    <!-- Commen Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+
+    </style>
 </head>
+
 <body>
-    <h1>This is VFA Home Page</h1>
+    <div class="top-nav">
+        <ul>
+            <li style="width: 96vw;"><i class="bx bx-menu"></i> &nbsp;<span id="'pageName'">Home</span></li>
+            <li style="width: 3vw; font-size: 2em; text-align: end;"><i class='bx bx-dots-vertical-rounded'></i></li>
+        </ul>
+    </div>
+    <!-- main Body -->
+    <iframe src="./pages/home.html" frameborder="0" id="content"></iframe>
+
+
+
+    <!-- Bottom Navigation Menu -->
+    <nav>
+        <li>
+            <button onclick="changeSRC('./pages/home.html')">
+                <i class="bx bx-home"></i>
+                <span class="title">Home</span>
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/community.htm')">
+                <i class="bx bx-leaf"></i>
+                <span class="title">Community</span>
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/settings.htm')">
+                <i class="bx bx-user"></i>
+                <span class="title">Acount</span>
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/home.html')">
+                <i class="bx bx-notification"></i>
+                <span class="title">Notification</span>
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/home.html')">
+                <i class="bx bxs-widget"></i>
+                <span class="title">Settings</span>
+            </button>
+        </li>
+    </nav>
+    <script>
+        function changeSRC(link) {
+            console.log('Given link is: ' + link)
+            document.getElementById('content').src = link;
+        }
+    </script>
+    <!-- Bottom Navigation Script -->
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
