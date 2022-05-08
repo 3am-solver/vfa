@@ -10,18 +10,19 @@ nav {
   list-style-type: none;
   background-color: rgb(9, 240, 86);
   height: 10vh;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
 }
-nav li {
+nav>li {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100px;
 }
-nav li button {
+nav>li>button {
   text-decoration: none;
   color: white;
   font-size: 2rem;
@@ -36,7 +37,7 @@ nav li button .title {
   font-size: 2rem;
 }
 
-nav li button:hover {
+nav>li>button:hover {
   color: orange;
   font-size: 2.2rem;
   transition: 0.2s;

@@ -218,57 +218,77 @@ nav > ul > li > a {
   font-size: 50px;
   color: rgb(255, 102, 0);
 }
-
-.sv-container {
+.sv-container{
+  display: grid;
+  place-items: center;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  height: max-content;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-content: space-around;
-}
-
-.sv-list-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: min-content;
-  color: black;
-}
-
-.sv-card {
-  width: 90%;
-  margin: 5px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-.sv-card > div {
-  padding: 0px 20px;
-  border-radius: 80px;
-  background-color: #fff;
-}
-
-.sv-card > h1 {
-  color: orange;
-  font-size: 25px;
+  padding: 0 1em 1em 1em;
   text-align: center;
 }
-
-.sv-card > i {
-  font-size: 2rem;
-  width: 100px;
-  color: rgb(0, 255, 0);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 100px;
-  margin: 10px;
+.service-card {
+  width: 100%;
+  height: 100%;
+  padding: 2em 1.5em;
+  background: linear-gradient(#ffffff 50%, #07ec2d 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
 }
+.icon-wrapper {
+  background-color: #faa200;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.1s;
+}
+.service-card:hover {
+  background-position: 0 100%;
+}
+.service-card:hover .icon-wrapper {
+  background-color: #23fd06c9;
+  color: #ffffff;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+.service-card h3{
+  color: #07ec2d;
+}
+.service-card p{
+  color: #faa200;
+}
+.service-card:hover h3 {
+  color: #ffffff;
+}
+.service-card:hover p {
+  color: #f0f0f0;
+}
+@media screen and (min-width: 768px) {
+  .column {
+    flex: 0 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .column {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
 /* Expert Section */
 .expert {
   display: flex;

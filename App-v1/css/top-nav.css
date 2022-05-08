@@ -15,6 +15,11 @@
     align-items: center;
 }
 
-.top-nav ul li {
+.top-nav>ul>li {
     font-size: 2em;
+}
+.top-nav>ul>li>button{
+    outline: none;
+    border: none;
+    background-color: transparent;
 }

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'> </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffc400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            margin-bottom: 5px;
+        }
+
+        .box {
+            color: orange;
+            margin-left: 10px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .box h2 {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .img-wrap {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            margin: 0;
+            box-shadow: 0px 0px 5px black;
+            border-radius: 30px 10px;
+        }
+
+        div>img {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-height: 100%;
+            min-width: 100%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Progress Bar */
+        .progress {
+            width: 100%;
+        }
+
+        .progress2 {
+            border-radius: 30px;
+            background-color: #fff;
+        }
+
+        .progress-bar2 {
+            height: 25px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s linear;
+            transition-property: width, background-color;
+        }
+
+        .progress-moved .progress-bar2 {
+            animation: progressa 10s forwards ease;
+        }
+
+        @keyframes progressa {
+            0% {
+                width: 10%;
+                background: #0da807ce;
+            }
+
+            50% {
+                width: 50%;
+                background: #05f12c;
+            }
+
+            100% {
+                width: 100%;
+                background: #05f12c;
+            }
+        }
+
+        .e-time {
+            color: #05f12c;
+            font-size: small;
+        }
+
+        .e-time>span {
+            color: grey;
+        }
+        .view-task-btn{
+            width: 100px;
+            height: 100%;
+            padding: 10px;
+            background-color: #ffc400;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 0px 20px;
+            margin: 5px;
+        }
+        .view-task-btn:hover{
+            color: white;
+            background-color: #05f12c;
+            transition: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" id="in-screen-none">
+        <!-- <div class="img-wrap">
+            <img src="../img/carousel-image03.jpg" alt="Crop image">
+        </div> -->
+        <div class="box">
+            <h2><a href="#" style="color: #ffc400; text-decoration: none;">Current Task to do</a></h2>
+            <div class="progress">
+                <div class="progress2 progress-moved">
+                    <div class="progress-bar2">
+                        <span style="color: white; width: auto;">Growing</span>
+                    </div>
+                </div>
+            </div>
+            <span class="e-time">Estimated Time to Harvest: <span>14/09/2022</span></span>
+            <br>
+            <span class="e-time">Today's Market Price: <span>RS. 1499</span></span>
+            <br>
+            <div style="display: flex; justify-content: end; width: 100%;">
+                <button class="view-task-btn" onclick="changeScreen('./include/test.htm')">View</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="in-screen-none">
+        <!-- <div class="img-wrap">
+            <img src="../img/carousel-image03.jpg" alt="Crop image">
+        </div> -->
+        <div class="box">
+            <h2><a href="#" style="color: #ffc400; text-decoration: none;">Current Task to do</a></h2>
+            <div class="progress">
+                <div class="progress2 progress-moved">
+                    <div class="progress-bar2">
+                        <span style="color: white; width: auto;">Growing</span>
+                    </div>
+                </div>
+            </div>
+            <span class="e-time">Estimated Time to Harvest: <span>14/09/2022</span></span>
+            <br>
+            <span class="e-time">Today's Market Price: <span>RS. 1499</span></span>
+            <br>
+            <div style="display: flex; justify-content: end; width: 100%;">
+                <button class="view-task-btn" onclick="changeScreen('./include/test.htm')">View</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="in-screen-none">
+        <!-- <div class="img-wrap">
+            <img src="../img/carousel-image03.jpg" alt="Crop image">
+        </div> -->
+        <div class="box">
+            <h2><a href="#" style="color: #ffc400; text-decoration: none;">Current Task to do</a></h2>
+            <div class="progress">
+                <div class="progress2 progress-moved">
+                    <div class="progress-bar2">
+                        <span style="color: white; width: auto;">Growing</span>
+                    </div>
+                </div>
+            </div>
+            <span class="e-time">Estimated Time to Harvest: <span>14/09/2022</span></span>
+            <br>
+            <span class="e-time">Today's Market Price: <span>RS. 1499</span></span>
+            <br>
+            <div style="display: flex; justify-content: end; width: 100%;">
+                <button class="view-task-btn" onclick="changeScreen('./include/test.htm')">View</button>
+            </div>
+        </div>
+    </div>
+    <iframe src="./hginclude/test.htm" frameborder="0" id="content" style="display: none;"></iframe>
+    <script>
+        function changeScreen(link) {
+            console.log("Given inside screen link is: " + link);
+            document.getElementById("in-screen-none").style.display = "none";
+            document.getElementById("content").style.display = "block";
+            document.getElementById("content").src = link;
+        }
+    </script>
+</body>
+
+</html>
