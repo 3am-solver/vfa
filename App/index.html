@@ -3,99 +3,185 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VFA @Virtual Farming Assistant APP</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
-    <!--=============== BOXICONS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="./css/root.css">
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-    <link rel="stylesheet" href="./css/_scss.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-
-    <title>VFA@ Virtual Farming Assistant</title>
 </head>
 
 <body>
-    <!--=============== HEADER ===============-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Virtual Farming Assistant</a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class='bx bx-home-alt nav__icon'></i>
-                            <span class="nav__name">Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class='bx bx-user nav__icon'></i>
-                            <span class="nav__name">About</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class='bx bx-book-alt nav__icon'></i>
-                            <span class="nav__name">Skills</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <i class='bx bx-briefcase-alt nav__icon'></i>
-                            <span class="nav__name">Portfolio</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#contactme" class="nav__link">
-                            <i class='bx bx-message-square-detail nav__icon'></i>
-                            <span class="nav__name">Contactme</span>
-                        </a>
-                    </li>
-                </ul>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2 class="text-muted">Virtual Farm Assistant</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
             </div>
+            <div class="sidebar">
+                <a href="#" class="sidebarA active">
+                    <span class="material-icons-sharp">
+                        home
+                    </span>
+                    <h2>Home</h2>
+                </a>
+                <a href="#" class="sidebarA">
+                    <span class="material-icons-sharp">
+                        hub
+                    </span>
+                    <h2>Community</h2>
+                </a>
+                <a href="#" class="sidebarA">
+                    <span class="material-icons-sharp">
+                        thermostat
+                    </span>
+                    <h2>Weather</h2>
+                </a>
+                <a href="#" class="sidebarA">
+                    <span class="material-icons-sharp">
+                        person
+                    </span>
+                    <h2>Account</h2>
+                    <!-- <span class="message-count">21</span> -->
+                </a>
+                <a href="#" class="sidebarA">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h2>Setting</h2>
+                </a>
+            </div>
+        </aside>
 
-            <img src="./img/perfil.png" alt="" class="nav__img">
-        </nav>
-    </header>
+        <!-- End of sidebar -->
 
-    <main>
-        <!--=============== HOME ===============-->
-        <section class="container section section__height" id="home">
-            <h2 class="section__title">Home</h2>
-        </section>
+        <main>
+            <!-- Card Section -->
+            <h1>Home</h1>
+            <div class="cards">
+                <div class="card">
+                    <span class="material-icons-sharp">auto_graph</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Crop Name</h3>
+                            <h1>Current State of Crop</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hours</small>
+                </div>
+                <div class="card">
+                    <span class="material-icons-sharp">auto_graph</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>SugraCane</h3>
+                            <h1>Ready to Harvest</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hours</small>
+                </div>
+                <div class="card">
+                    <span class="material-icons-sharp">auto_graph</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Wheat</h3>
+                            <h1>Growing</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hours</small>
+                </div>
+                <div class="card">
+                    <span class="material-icons-sharp">auto_graph</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Peanuts</h3>
+                            <h1>Need Furtilizer</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hours</small>
+                </div>
+            </div>
+        </main>
 
-        <!--=============== ABOUT ===============-->
-        <section class="container section section__height" id="about">
-            <h2 class="section__title">About</h2>
-        </section>
-
-        <!--=============== SKILLS ===============-->
-        <section class="container section section__height" id="skills">
-            <h2 class="section__title">Skills</h2>
-        </section>
-
-        <!--=============== PORTFOLIO ===============-->
-        <section class="container section section__height" id="portfolio">
-            <h2 class="section__title">Portfolio</h2>
-        </section>
-
-        <!--=============== CONTACTME ===============-->
-        <section class="container section section__height" id="contactme">
-            <h2 class="section__title">Contactme</h2>
-        </section>
-    </main>
-
-
-    <!--=============== MAIN JS ===============-->
-    <script src="js/navbar.js"></script>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Hardik</b></p>
+                        <small class="text-muted"></small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../img/carousel-image02.jpg" alt="profile_picture">
+                    </div>
+                </div>
+            </div>
+            <!-- End of Top -->
+            <div class="recent-updates">
+                <h2>Recent Updates</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="../img/carousel-image04.jpg" alt="profile_picture">
+                        </div>
+                        <div class="message">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti delectus assumenda quam quisquam eaque, ratione amet sed harum quaerat nisi.</p>
+                            <small class="text-muted">2 minutes ago</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="../img/image-box03.jpg" alt="profile_picture">
+                        </div>
+                        <div class="message">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti delectus assumenda quam quisquam eaque, ratione amet sed harum quaerat nisi.</p>
+                            <small class="text-muted">2 minutes ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
