@@ -1,0 +1,118 @@
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+  aside .logo h2 {
+    display: none;
+  }
+  aside .sidebar h2 {
+    display: none;
+  }
+
+  aside .sidebar a {
+    width: 5.6rem;
+  }
+  aside .sidebar a:list-child {
+    position: relative;
+    margin-top: 1.8rem;
+  }
+  main .cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* For smaller devies amd tablets  */
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  aside {
+    position: fixed;
+    left: -100%;
+    background-color: var(--color-white);
+    width: 18rem;
+    z-index: 3;
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    height: 100vh;
+    padding-right: var(--card-padding);
+    display: none;
+    animation: showMenu 1s ease forwards;
+  }
+
+  @keyframes showMenu {
+    to {
+      left: 0%;
+    }
+  }
+  aside .logo {
+    margin-left: 1rem;
+  }
+
+  aside .logo h2 {
+    display: inline;
+  }
+
+  aside .sidebar a h2 {
+    display: inline;
+  }
+
+  aside .sidebar a {
+    width: 100%;
+    height: 3.4rem;
+  }
+
+  aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 5rem;
+  }
+  aside .close {
+    display: inline-block;
+    cursor: pointer;
+  }
+  main {
+    margin-top: 5rem;
+    padding: 0 1rem;
+  }
+  .right {
+    width: 94%;
+    margin: 0 auto 4rem;
+  }
+
+  .right .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 0.8rem;
+    height: 4.6rem;
+    background-color: var(--color-white);
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 1rem 1rem var(--color-light);
+  }
+  .right .top button {
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--color-warning);
+    position: absolute;
+    font-size: 2rem;
+    left: 1rem;
+    border: none;
+    font-weight: 900;
+  }
+
+  .right .top .button span {
+    font-size: 2rem;
+  }
+
+  .left > h1 {
+    font-size: 1.3rem;
+  }
+}
