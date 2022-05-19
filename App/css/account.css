@@ -1,15 +1,3 @@
-/*
-
-All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 310). 
-        
-The 'supports' rule will only run if your browser supports CSS grid.
-
-Flexbox and floats are used as a fallback so that browsers which don't support grid will still recieve a similar layout.
-
-*/
-:root{
-    font-size: 12px;
-}
 img {
   display: block;
 }
@@ -31,14 +19,6 @@ img {
 
 .btn:focus {
   outline: 0.5rem auto #4d90fe;
-}
-
-.visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* Profile Section */
@@ -79,22 +59,24 @@ img {
 
 .profile-user-name {
   display: inline-block;
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-weight: 300;
 }
 
 .profile-edit-btn {
-  font-size: 1.4rem;
-  line-height: 1.8;
+  font-size: 1.5rem;
+  line-height: 2;
   border: 0.1rem solid #dbdbdb;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   padding: 0 2.4rem;
   margin-left: 2rem;
+  border-radius: 2rem;
 }
 
-.profile-settings-btn {
-  font-size: 2rem;
-  margin-left: 1rem;
+.profile-edit-btn:hover {
+  background-color: var(--color-primary);
+  transition: all 500ms ease ;
+  color: var(--color-white);
 }
 
 .profile-stats {
@@ -103,7 +85,7 @@ img {
 
 .profile-stats li {
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   line-height: 1.5;
   margin-right: 4rem;
   cursor: pointer;
@@ -114,7 +96,7 @@ img {
 }
 
 .profile-bio {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.5;
   margin-top: 2.3rem;
@@ -155,28 +137,6 @@ img {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.gallery-item-info {
-  display: none;
-}
-
-.gallery-item-info li {
-  display: inline-block;
-  font-size: 1.7rem;
-  font-weight: 600;
-}
-
-.gallery-item-likes {
-  margin-right: 2.2rem;
-}
-
-.gallery-item-type {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2.5rem;
-  text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-}
-
 .fa-clone,
 .fa-comment {
   transform: rotateY(180deg);
@@ -186,6 +146,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 2rem;
 }
 
 
