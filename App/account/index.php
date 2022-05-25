@@ -8,6 +8,7 @@
     <title>VFA @Virtual Farming Assistant APP</title>
     <link rel="stylesheet" href="../css/account.css">
     <?php include('../include/base-css.php'); ?>
+   
 </head>
 
 <body>
@@ -20,8 +21,7 @@
                 <div class="insta-container cards">
                     <div class="profile card">
                         <div class="profile-image">
-                            <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
-                                alt="">
+                            <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
                         </div>
 
                         <div class="profile-user-settings">
@@ -58,20 +58,16 @@
                 <div class="insta-container cards">
                     <div class="gallery card">
                         <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop"
-                                class="gallery-image" alt="">
+                            <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop" class="gallery-image" alt="">
                         </div>
                         <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop"
-                                class="gallery-image" alt="">
+                            <img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop" class="gallery-image" alt="">
                         </div>
                         <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop"
-                                class="gallery-image" alt="">
+                            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop" class="gallery-image" alt="">
                         </div>
                         <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop"
-                                class="gallery-image" alt="">
+                            <img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop" class="gallery-image" alt="">
                         </div>
                     </div>
                 </div>

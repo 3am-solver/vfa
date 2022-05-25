@@ -21,20 +21,13 @@
   .mobile-respo > p {
     font-size: 1.5rjrem;
   }
-  * .about-us {
-    flex-direction: column;
-    height: max-content;
+  .about-us {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1rem;
   }
   .about-info {
-    width: 90vw;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    margin: 0 auto;
+    font-size: 2rem;
   }
   .about-info > a {
     text-decoration: none;
@@ -107,6 +100,10 @@
     color: rgb(0, 255, 0);
     width: 95vw;
   }
+  .footer-card{
+    grid-template-rows: auto;
+    grid-template-columns: none;
+ }
 }
 
 /* Medium devices (tablets) */
@@ -115,7 +112,7 @@
 
 /* Large devices (desktops, Laptop) */
 @media (min-width: 850px) {
-  .mobile-section > div {
+  .home > div {
     margin-top: 20px;
     width: 80vw;
     height: 60vh;
@@ -130,13 +127,13 @@
     justify-content: center;
     align-items: stretch;
   }
-  .mobile-section > h1 {
+  .home > h1 {
     font-size: 2rem;
   }
-  .mobile-respo > h2{
+  .mobile-respo > h2 {
     font-size: 3rem;
   }
-  .mobile-respo > h3{
+  .mobile-respo > h3 {
     font-size: 2rem;
   }
 }

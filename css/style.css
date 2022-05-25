@@ -102,7 +102,7 @@ nav > ul > li > a {
 }
 
 /* Getting Started Main Section */
-.mobile-section {
+.home {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,29 +114,24 @@ nav > ul > li > a {
   width: 100vw;
   height: 100vh;
 }
-.mobile-section > div {
+.home > div {
   margin-top: 20px;
-  width: max-content;
+  width: 80vw;
   height: max-content;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
+  border-radius: 2rem;
   box-shadow: 0px 0px 5px rgb(255, 255, 255);
-  padding: 20px;
+  padding: 2rem;
 }
 /* About Us section */
 .about-us {
-  width: 90vw;
-  height: 100vh;
-  margin: 0% auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  width: 95vw;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 49% 49%;
 }
 
 .about-info {
-  width: 50%;
   height: 100%;
   display: flex;
   align-items: flex-start;
@@ -147,9 +142,9 @@ nav > ul > li > a {
 }
 
 .img-slider {
-  width: 100%;
   box-shadow: 0px 0px 5px black;
   position: relative;
+  overflow: hidden;
 }
 .position-relative {
   width: 400px;
@@ -158,8 +153,8 @@ nav > ul > li > a {
   left: 5px;
   bottom: 20px;
   z-index: 100;
-  font-size: 30px;
-  padding: 20px 30px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
   border-radius: 2px;
   box-shadow: 0px 0px 10px green;
   border-radius: 40px 40px 40px 0px;
@@ -197,7 +192,6 @@ nav > ul > li > a {
 .service {
   background-image: url("../img/serviceBG.jpg");
   margin: 0 auto;
-  width: 95vw;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -205,7 +199,7 @@ nav > ul > li > a {
 
 .service > h2,
 .service > h1 {
-  font-size: 40px;
+  font-size: 2rem;
   margin: 10px 0px;
   font-weight: bolder;
   color: rgb(0, 255, 0);
@@ -215,10 +209,10 @@ nav > ul > li > a {
 }
 
 .service > h1 {
-  font-size: 50px;
+  font-size: 2rem;
   color: rgb(255, 102, 0);
 }
-.sv-container{
+.sv-container {
   display: grid;
   place-items: center;
 }
@@ -259,15 +253,15 @@ nav > ul > li > a {
 .service-card:hover {
   background-position: 0 100%;
 }
-.service-card:hover .icon-wrapper {
+.service-card:hover {
   background-color: #23fd06c9;
   color: #ffffff;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
-.service-card h3{
+.service-card h3 {
   color: #07ec2d;
 }
-.service-card p{
+.service-card p {
   color: #faa200;
 }
 .service-card:hover h3 {
@@ -307,12 +301,10 @@ nav > ul > li > a {
   font-size: 3rem;
 }
 .card-section {
-  display: flex;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  width: 95vw;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 90vw;
-  height: min-content;
 }
 .card {
   width: fit-content;
@@ -413,6 +405,7 @@ nav > ul > li > a {
 }
 
 /* Footer Section */
+
 .footer {
   border-top: 3px solid orange;
   width: 100vw !important;
@@ -420,6 +413,12 @@ nav > ul > li > a {
   background-color: black;
   color: #fff;
 }
+.footer-card{
+   display: grid;
+   gap: 0.5rem;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .f-card {
   display: flex;
   justify-content: center;
@@ -428,40 +427,40 @@ nav > ul > li > a {
   margin: 10px auto;
   width: 99vw;
 }
-.footer-card {
+.footer-card-section {
   width: 100%;
   margin: 30px;
 }
-.footer-card > img {
+.footer-card-section > img {
   width: 250px;
   height: 250px;
 }
-.footer-card > h2 {
+.footer-card-section > h2 {
   font-size: x-large;
   color: orange;
   border-bottom: 2px solid orange;
   width: max-content;
 }
-.footer-card > p {
+.footer-card-section > p {
   width: 100%;
 }
-.footer-card > ul > li {
+.footer-card-section > ul > li {
   border-bottom: 1px solid green;
   width: max-content;
 }
-.footer-card > ul > li:hover {
+.footer-card-section > ul > li:hover {
   color: rgb(0, 255, 0);
   transition: 0.5s;
   font-weight: 500;
 }
 /* Sharing user Experince Form Design */
 .user-exp-share-form {
-  width: 80vw;
-  height: max-content;
+  width: 95vw;
   background-color: green;
   color: #fff;
-  border-radius: 13px;
+  border-radius: 2rem;
   box-shadow: 0px 0px 10px black;
+  padding: 1rem;
 }
 .u-share-form {
   width: 100%;

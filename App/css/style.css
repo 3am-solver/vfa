@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 /* Root Variables */
 :root {
-  --color-primary: #7388ec;
+  --color-primary: #ffbb55;
   /* --color-primary: #56f80b; */
   --color-danger: #ff7782;
   --color-success: #41f1b6;
@@ -20,8 +20,8 @@
   --border-radius-2: 0.8rem;
   --border-radius-3: 1.2rem;
 
-  --card-padding: 0.9rem;
-  --padding: 1.2rem;
+  --card-padding: 0.7rem;
+  --padding: 1rem;
 
   --box-shadow: 0 2rem 3rem var(--color-light);
 }

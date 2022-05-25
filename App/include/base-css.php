@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/sidebar.css">
-<link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/right.css">
 <link rel="stylesheet" href="../css/mediaQueries.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">

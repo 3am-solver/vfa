@@ -18,11 +18,11 @@
             <div class="cards">
                 <div class="post card">
                     <div class="post-top">
-                    <div class="post-profile-photo">
-                        <img src="../img/carousel-image02.jpg" alt="profile_picture">
+                        <div class="post-profile-photo">
+                            <img src="../img/carousel-image02.jpg" alt="profile_picture">
+                        </div>
                         <h2>@Hardik_Kanajariya</h2>
-                    </div>
-                        <b>Follow</b>
+                        <span class="primary">Follow</span>
                     </div>
                     <div class="data">
                         <div class="post-bio">
