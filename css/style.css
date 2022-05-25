@@ -107,7 +107,7 @@ nav > ul > li > a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url(../img/mainBg.jpg);
+  background-image: url(../App/img/mainBg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(255, 255, 255);
