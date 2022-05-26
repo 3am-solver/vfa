@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userlogin'])){
+        echo "<script> document.location = '../home';</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VFA @Login/Register</title>
-    <link rel="stylesheet" href="./css/authenticate.css">
+    <link rel="stylesheet" href="../css/authenticate.css">
 </head>
 
 <body>
@@ -16,14 +22,22 @@
             <!-- SIGN UP -->
             <div class="col align-items-center flex-col sign-up">
                 <div class="form-wrapper align-items-center">
-                    <div class="form sign-up">
+                    <form method="post" action="auth.php?f=signup" class="form sign-up">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" placeholder="Name" name="f-name">
                         </div>
                         <div class="input-group">
                             <i class='bx bx-mail-send'></i>
-                            <input type="tel" placeholder="Mobile No">
+                            <input type="tel" placeholder="Mobile No" name="f-mobileno">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+                            <input type="tel" placeholder="Email" name="f-email">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" placeholder="Username" name="f-username">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
@@ -31,7 +45,7 @@
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Confirm password">
+                            <input type="password" placeholder="Confirm password" name="f-password">
                         </div>
                         <button>
                             Sign up
@@ -44,21 +58,21 @@
                                 Sign in here
                             </b>
                         </p>
-                    </div>
+                    </form>
                 </div>
             </div>
             <!-- END SIGN UP -->
             <!-- SIGN IN -->
             <div class="col align-items-center flex-col sign-in">
                 <div class="form-wrapper align-items-center">
-                    <div class="form sign-in">
+                    <form class="form sign-in" method="post" action="auth.php?f=login">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" placeholder="Username" name="f-username">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
+                            <input type="password" placeholder="Password" name="f-password">
                         </div>
                         <button>
                             Sign in
@@ -76,7 +90,7 @@
                                 Sign up here
                             </b>
                         </p>
-                    </div>
+                    </form>
                 </div>
                 <div class="form-wrapper">
 
