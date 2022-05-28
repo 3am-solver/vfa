@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo Da 2', cursive;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    line-height: 100% !important;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}

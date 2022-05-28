@@ -1,0 +1,28 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "App-v3": true,
+        "App-v1": true,
+        "App-v2": true,
+        "Rubbish": true,
+        ".vscode": true,
+        "readme": true
+    },
+    "hide-files.files": [
+        "App-v3",
+        "App-v1",
+        "App-v2",
+        "Rubbish",
+        ".vscode",
+        "readme"
+    ]
+}

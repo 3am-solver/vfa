@@ -1,3 +1,6 @@
+<?php
+    require('../connection/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,74 +11,91 @@
     <title>VFA @Virtual Farming Assistant APP</title>
     <link rel="stylesheet" href="../css/account.css">
     <?php include('../include/base-css.php'); ?>
-   
+
 </head>
 
 <body>
     <div class="container">
         <?php include('../include/sidebar.php'); ?>
         <main>
-            <h1>Account</h1>
-            <header>
-
-                <div class="insta-container cards">
-                    <div class="profile card">
-                        <div class="profile-image">
-                            <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
-                        </div>
-
-                        <div class="profile-user-settings">
-                            <h1 class="profile-user-name">janedoe_</h1>
-                            <a class="btn profile-edit-btn">Edit Profile</a>
-                        </div>
-
-                        <div class="profile-stats">
-
-                            <ul>
-                                <li><b class="profile-stat-count">164</b> posts</li>
-                                <li><b class="profile-stat-count">188</b> followers</li>
-                                <li><b class="profile-stat-count">206</b> following</li>
-                            </ul>
-
-                        </div>
-
-                        <div class="profile-bio">
-
-                            <p><i class="profile-real-name">Jane Doe</i> Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit 📷✈️🏕️</p>
-
-                        </div>
-
-                    </div>
-                    <!-- End of profile section -->
-
+            <!-- Profile information -->
+            <div class="profile-box" id="profile-box">
+                <div class="nav">
+                    <h2 style="color: white ;">My Profile</h2>
+                    <h2 style="cursor:pointer; color:snow;" onclick="show_edit_box()">Edit Profile</h2>
                 </div>
-                <!-- End of container -->
+                <div class="middle">
+                    <img src="../img/bg.jpg" alt="profile-image">
+                    <h2 style="color: white;"><?=$_SESSION['farmerName']?></h2>
+                    <div>
+                        <!-- <span class="material-icons-sharp" style="color: white;">
+                            whatsapp
+                        </span> -->
+                        <span style="color: white;">+91 <?=$_SESSION['farmerMno']?></span>
+                    </div>
+                </div>
+            </div>
 
-            </header>
-
-            <main>
-                <div class="insta-container cards">
-                    <div class="gallery card">
-                        <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop" class="gallery-image" alt="">
+            <!-- Your Current Crop -->
+            <div class="crop" id="crop">
+                <div class="card">
+                    <h4>Sowing Date: <b>7 March,2022</b></h4>
+                    <div class="inner-card">
+                        <div class="rightside">
+                            <div>
+                                <h3>Farm Name: </h3>
+                                <p>Your Farm name goes here</p>
+                            </div>
+                            <div>
+                                <h3>Crop Name: </h3>
+                                <p>Crop Name goes here</p>
+                            </div>
                         </div>
-                        <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop" class="gallery-image" alt="">
-                        </div>
-                        <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop" class="gallery-image" alt="">
-                        </div>
-                        <div class="gallery-item" tabindex="0">
-                            <img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop" class="gallery-image" alt="">
+                        <div class="left">
+                            <img src="../img/carousel-image04.jpg" alt="crop-image">
                         </div>
                     </div>
                 </div>
-            </main>
+                <div style=" text-align:center;">
+                    <a href="../auth/auth.php?signout=true" style="color: red; text-decoration:underline; font-size:1rem;">Sign Out</a>
+                </div>
+            </div>
+
+            <!-- Edit Profile -->
+            <div class="edit-profile" id="edit-profile-box">
+                <div class="top">
+                    <span class="material-icons-sharp back-btn" style="margin-right: 5px; cursor:pointer;" onclick="show_profile()">keyboard_backspace</span>
+                    <h2>Edit Profile</h2>
+                </div>
+                <div class="edit-profile-body">
+                    <form action="#" method="POST">
+                        <input type="text" name="farmer-name" id="farmer-name" placeholder="Name">
+                        <input type="tel" name="farmer-mobile" id="farmer-mobile" placeholder="Mobile No">
+                        <input type="text" name="farmer-state" id="farmer-state" placeholder="State">
+                        <input type="text" name="farmer-district" id="farmer-district" placeholder="District">
+                        <input type="text" name="farmer-taluka" id="farmer-taluka" placeholder="Taluka">
+                        <input type="text" name="farmer-village" id="farmer-village" placeholder="Village">
+                    </form>
+                </div>
+            </div>
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
     <script src="../js/index.js"></script>
+    <script>
+        function show_profile() {
+            document.getElementById('profile-box').style.display = 'block';
+            document.getElementById('crop').style.display = 'block';
+            document.getElementById('edit-profile-box').style.display = 'none';
+        }
+
+        function show_edit_box() {
+            document.getElementById('profile-box').style.display = 'none';
+            document.getElementById('crop').style.display = 'none';
+            document.getElementById('edit-profile-box').style.display = 'block';
+
+        }
+    </script>
 </body>
 
 </html>

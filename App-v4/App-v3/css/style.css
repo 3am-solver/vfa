@@ -1,0 +1,16 @@
+html{
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+.index-container{
+    margin: 0px auto;
+    width: 100vw !important;
+}

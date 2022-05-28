@@ -3,8 +3,9 @@
     if(isset($_SESSION['userlogin'])){
         echo "<script> document.location = '../home';</script>";
     }
+    
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -65,6 +66,11 @@
             <!-- SIGN IN -->
             <div class="col align-items-center flex-col sign-in">
                 <div class="form-wrapper align-items-center">
+                    <?php
+                        if(isset($_SESSION['userlogin']) && $_SESSION['userlogin'] == false){
+                            echo "invalid username or Password";
+                        }
+                    ?>
                     <form class="form sign-in" method="post" action="auth.php?f=login">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>

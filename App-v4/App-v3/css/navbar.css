@@ -1,0 +1,30 @@
+nav{
+    width: 100vw;
+    height: 100px;
+    padding: 5px;
+    background-color: aquamarine;
+    display: grid;
+    position: sticky;
+    top: 0%;
+    left: 0%;
+}
+
+nav>ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav>ul>li:first-child{
+    width: 60%;
+    font-size: x-large;
+}
+
+nav>ul>li{
+    margin-left: 20px;
+    font-size: 1.25rem;
+    color: white;
+}
+
+nav>ul>li:hover{
+    color: rgba(0, 0, 0, 0.863);
+}

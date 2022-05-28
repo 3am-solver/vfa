@@ -1,8 +1,11 @@
 <?php
-    session_start();
-    if(isset($_SESSION['userlogin']) != true){
-        echo "<script> document.location = '../auth';</script>";
-    }
+require("../connection/conn.php");
+// echo "<br>farmer id is in session = ".$_SESSION['farmerId'];
+// echo "<br>farmer Name is in session = ".$_SESSION['farmerName'];
+// echo "<br>farmer username is in session = ".$_SESSION['farmerUsername'];
+if (isset($_SESSION['userlogin']) != true) {
+    echo "<script> document.location = '../auth';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,86 +56,95 @@
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
-    <!-- select-crop-section start-->
-    <div class="select-crop-section crop-add">
-        <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
-        <div class="crop-gallary">
-            <div class="crop-item">
-                <img src="../img/carousel-image01.jpg" alt="crop-image">
-                <h2>Crop Name</h2>
+    <form action="add-crop-tracking.php" method="POST">
+        <!-- select-crop-section start-->
+        <div class="select-crop-section crop-add">
+            <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
+            <div class="crop-gallary">
+                <?php
+                $result = mysqli_query($con, "SELECT * FROM crop");
+                while ($data = mysqli_fetch_array($result)) {
+                    echo '<div class="crop-item">
+                            <input type="hidden" name="crop-name" value="' . $data["id"] . '">
+                            <img src="../img/upload/crop/' . $data["image"] . '" alt="crop-image">
+                            <h2 id="crop-name">' . $data["name"] . '</h2> 
+                    </div>';
+                }
+                ?>
             </div>
         </div>
-    </div>
-    <!-- select-crop-section Ends -->
-    <!-- Select Date of sowing -->
-    <div class="date-of-sowing crop-add" id="add-sowing">
-        <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
-        <div class="crop-add-body">
-            <h3>
-                Please select the accureate Date of Sowing of your crop as it is an important part of your crop lifecycle
-            </h3>
-            <h1 for="sowing-date">Enter sowing Date</h1>
-            <input type="date" name="sowing-date" id="sowing-date">
-        </div>
-        <div class="note-card">
-            <div class="note-icon">
-                <span class="material-icons-sharp">
-                    tips_and_updates
-                </span>
-                <h3>Tips</h3>
+        <!-- select-crop-section Ends -->
+        <!-- Select Date of sowing -->
+        <div class="date-of-sowing crop-add" id="add-sowing">
+            <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
+            <div class="crop-add-body">
+                <h3>
+                    Please select the accureate Date of Sowing of your crop as it is an important part of your crop lifecycle
+                </h3>
+                <h1 for="sowing-date">Enter sowing Date</h1>
+                <input type="date" name="sowing-date" id="sowing-date">
             </div>
-            <div class="note-body">
-                <div class="note-title">
-                    <h3>Why we Need Date of Sowing?</h3>
+            <div class="note-card">
+                <div class="note-icon">
+                    <span class="material-icons-sharp">
+                        tips_and_updates
+                    </span>
+                    <h3>Tips</h3>
                 </div>
-                <div class="note-description">
-                    <h4>VFA will keep you informed about your entire crop cycle from the date of sowing to the final harvest</h4>
-                </div>
-            </div>
-        </div>
-        <div class="crop-add-btn">
-            <button class="btn btn-previous" onclick='$(".date-of-sowing").css("display","none")'>PREVIOUS</button>
-            <button class="btn btn-next" onclick='$(".add-farm-area").css("display","block")'>NEXT</button>
-        </div>
-    </div>
-    <!-- Date of sowing Section Ends Here -->
-    <!-- Enter Farm Area -->
-    <div class="add-farm-area crop-add" id="select-area">
-        <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
-        <div class="crop-add-body">
-            <h1>How much area is taken by your Crop</h1>
-            <div>
-                <input type="text">
-                <select name="area-type" id="area-type">
-                    <option value="acre">Acre</option>
-                    <option value="hacter">Hacter</option>
-                    <option value="vigha">Vigha</option>
-                </select>
-            </div>
-        </div>
-        <div class="note-card">
-            <div class="note-icon">
-                <span class="material-icons-sharp">
-                    tips_and_updates
-                </span>
-                <h3>Tips</h3>
-            </div>
-            <div class="note-body">
-                <div class="note-title">
-                    <h3>Why we Need Farm size?</h3>
-                </div>
-                <div class="note-description">
-                    <h4>VFA will help you get personalized information about the right quantity of seeds and fertilizers</h4>
+                <div class="note-body">
+                    <div class="note-title">
+                        <h3>Why we Need Date of Sowing?</h3>
+                    </div>
+                    <div class="note-description">
+                        <h4>VFA will keep you informed about your entire crop cycle from the date of sowing to the final harvest</h4>
+                    </div>
                 </div>
             </div>
+            <div class="crop-add-btn">
+                <button class="btn btn-previous" onclick='$(".date-of-sowing").css("display","none")'>PREVIOUS</button>
+                <span class="btn btn-next" onclick='$(".add-farm-area").css("display","block")'>NEXT</span>
+            </div>
         </div>
-        <div class="crop-add-btn">
-            <button class="btn" onclick='$(".add-farm-area").css("display","none")'>PREVIOUS</button>
-            <button class="btn" onclick="">NEXT</button>
+        <!-- Date of sowing Section Ends Here -->
+        <!-- Enter Farm Area -->
+        <div class="add-farm-area crop-add" id="select-area">
+            <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
+            <div class="crop-add-body">
+                <h1>How much area is taken by your Crop</h1>
+                <div>
+                    <input type="text" name="area">
+                    <select name="area-type" id="area-type">
+                        <option value="acre">Acre</option>
+                        <option value="hacter">Hacter</option>
+                        <option value="vigha">Vigha</option>
+                    </select>
+                </div>
+            </div>
+            <div class="note-card">
+                <div class="note-icon">
+                    <span class="material-icons-sharp">
+                        tips_and_updates
+                    </span>
+                    <h3>Tips</h3>
+                </div>
+                <div class="note-body">
+                    <div class="note-title">
+                        <h3>Why we Need Farm size?</h3>
+                    </div>
+                    <div class="note-description">
+                        <h4>VFA will help you get personalized information about the right quantity of seeds and fertilizers</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="crop-add-btn">
+                <button class="btn" onclick='$(".add-farm-area").css("display","none")'>PREVIOUS</button>
+                <button class="btn" type="submit">Add Farm</button>
+            </div>
         </div>
-    </div>
+
+    </form>
     <!-- Farm Area Ends here -->
-   
+
     <script src="../js/index.js"></script>
 </body>
 

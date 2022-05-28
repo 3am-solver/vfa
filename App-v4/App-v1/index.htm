@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to VFA</title>
+    <!-- box-Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Root CSS -->
+    <link rel="stylesheet" href="./css/root.css">
+    <!-- Bottom navigation CSS -->
+    <link rel="stylesheet" href="./css/bottom-navigation.css?v=545">
+    <!-- Top Navigation  -->
+    <link rel="stylesheet" href="./css/top-nav.css">
+    <!-- Commen Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" class="w3-bar-item w3-button">My Account</a>
+        <a href="#" class="w3-bar-item w3-button">Settin</a>
+        <a href="#" class="w3-bar-item w3-button">FeedBack</a>
+        <a href="#" class="w3-bar-item w3-button">Share with Friends</a>
+        <a href="#" class="w3-bar-item w3-button">Rate</a>
+    </div>
+    <div class="top-nav">
+        <ul>
+            <li style="width: 96vw;">
+                <span id="sideMenu">
+                    <i class="bx bx-menu"></i> &nbsp;
+                    <span id="'pageName'">Home</span>
+                </span>
+            </li>
+            <li style="width: 3vw; font-size: 2em; text-align: end;"><i class='bx bx-dots-vertical-rounded'></i></li>
+        </ul>
+    </div>
+
+
+    <!-- main Body -->
+    <iframe src="./pages/home.html" frameborder="0" id="content"></iframe>
+
+
+
+
+    <!-- Bottom Navigation Menu -->
+    <nav>
+        <li>
+            <button onclick="changeSRC('./pages/community.htm')">
+                <i class="bx bx-leaf"></i>
+                <!-- <span class="title">Community</span> -->
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/account.htm')">
+                <i class="bx bx-user"></i>
+                <!-- <span class="title">Acount</span> -->
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/home.html')">
+                <i class="bx bx-home"></i>
+                <!-- <span class="title">Home</span> -->
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/home.html')">
+                <i class="bx bx-notification"></i>
+                <!-- <span class="title">Notification</span> -->
+            </button>
+        </li>
+        <li>
+            <button onclick="changeSRC('./pages/wheather.html')">
+                <i class='bx bx-cloud-light-rain'></i>
+                <!-- <span class="title">Wheather</span> -->
+            </button>
+        </li>
+    </nav>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'> </script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('#sideMenu').click(function () {
+                console.log("You clicked on menu")
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("mySidebar").style.transition = "0.5s";
+                document.getElementById("mySidebar").style.width = "100vw";
+            })
+        })
+            function changeSRC(link) {
+                console.log('Given link is: ' + link)
+                document.getElementById('content').src = link;
+            }
+
+        function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("mySidebar").style.transition = "0.5s";
+
+            }
+    </script>
+</body>
+
+</html>

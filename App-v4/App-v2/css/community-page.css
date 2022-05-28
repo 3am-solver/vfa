@@ -1,0 +1,66 @@
+
+.comm-container {
+    background: url("https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 95vw;
+    height: 500px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.726);
+    margin-top: 10px;
+    border-radius: 13px;
+}
+
+.comm-container .comm-container__info {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 20%;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px 30px;
+    color: #fff;
+}
+
+.comm-container .comm-container__info span {
+    margin-right: 20px;
+}
+
+.comm-container .comm-container__info i {
+    margin-right: 10px;
+}
+
+.comm-container .comm-container__profile {
+    background-color: #e4f2fd;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.comm-container .comm-container__profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.comm-container .comm-container__profile h2 {
+    color: #334454;
+    font-size: 1.2rem;
+}
+
+.comm-container .comm-container__profile p {
+    color: #a1b2bc;
+    font-size: 0.8rem;
+}
+
+.comm-container .comm-container__profile p b {
+    font-style: italic;
+}

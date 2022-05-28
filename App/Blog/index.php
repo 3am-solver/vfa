@@ -1,3 +1,9 @@
+<?php
+    require("../connection/conn.php");
+    if (isset($_SESSION['userlogin']) != true) {
+        echo "<script> document.location = '../auth';</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,20 +23,21 @@
             justify-content: space-between;
             align-content: center;
         }
-        main{
+
+        main {
             background-color: var(--color-background);
             padding: 0.8rem;
             border-radius: 2rem;
         }
 
-        .card{
+        .card {
             background-color: var(--color-white);
             border-radius: 1rem;
             box-shadow: var(--box-shadow);
             width: 100%;
         }
 
-        .card:hover{
+        .card:hover {
             box-shadow: none;
         }
 
@@ -39,21 +46,59 @@
             height: 150px;
             border-radius: 1rem;
         }
-        .card-title h2{
+
+        .card-title h2 {
             color: var(--color-success);
             font-size: 1rem;
             text-align: center;
         }
-        .card-btn{
+
+        .card-btn {
             text-align: center;
-        }
-        .card-btn a{
             color: var(--color-primary);
         }
-        .card-btn a:hover{
+
+        .card-btn:hover {
             cursor: pointer;
             text-decoration: underline;
             transition: all 300ms ease;
+        }
+
+        /* Blog section */
+        .blog-section {
+            width: -webkit-fill-available;
+            height: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            display: none;
+        }
+
+        .thumbnail img {
+            border-radius: 2rem;
+            padding: 1rem;
+            width: 100%;
+            overflow: hidden;
+            resize: auto;
+        }
+
+        .blog-content {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .blog-content p {
+            font-size: 0.9rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+        }
+
+        .blog-content img {
+            width: 300px;
+            height: 300px;
+            resize: auto;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -64,78 +109,47 @@
         <main>
             <h1>Blogs</h1>
             <div class="card-section">
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/mainBg.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                        <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/carousel-image05.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                    <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/carousel-image04.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                    <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/carousel-image03.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                    <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/carousel-image02.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                    <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="../img/carousel-image01.jpg" alt="blog-card cover image">
-                    </div>
-                    <div class="card-title">
-                    <h2>this is blog card title</h2>
-                    </div>
-                    <div class="card-btn">
-                        <a href="/blog-post">Read more</a>
-                    </div>
-                </div>
+                <?php
+                $result = mysqli_query($con, "SELECT * FROM blogs");
+                while ($data = mysqli_fetch_array($result)) {
+                    echo '<div class="card">
+                    <span style="display:none;" id="blog-id">' . $data["id"] . '</span>
+                        <div class="card-cover">
+                            <img src="../img/upload/blog/' . $data["thumbnail"] . '" alt="' . $data["thumbnail"] . '">
+                        </div>
+                        <div class="card-title">
+                            <h2>' . $data["title"] . '</h2>
+                        </div>
+                        <div class="card-btn">
+                            Read More
+                        </div>
+                    </div>';
+                }
+                ?>
+            </div>
+            <div id="blog">
                 
             </div>
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
     <script src="../js/index.js"></script>
+    <!-- <script>
+        $(".card-btn").click(() => {
+            console.log("You clicked read more btn");
+            let id = $("#blog-id").text();
+            // alert(id + " this is blog id");
+            // Ajax Request to get Blog 
+            $.ajax({
+                url: 'get_blog.php?id=' + id,
+                type: 'POST',
+                success: function(response) {
+                    $("#blog").html(response);
+                    console.log(response);
+                }
+            });
+        });
+    </script> -->
 </body>
 
 </html>

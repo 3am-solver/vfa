@@ -1,0 +1,25 @@
+.top-nav {
+    width: 100vw;
+    height: 80px;
+    background-color: rgba(14, 214, 14, 0.671);
+    color: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden !important;
+}
+
+.top-nav>ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-nav>ul>li {
+    font-size: 2em;
+}
+.top-nav>ul>li>button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
