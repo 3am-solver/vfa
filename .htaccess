@@ -1,7 +1,1 @@
 ErrorDocument 404 http://localhost/vfa/404/
-
-RewriteEngine On
-RewriteBase /
-
-RewriteCond %{REQUEST_URI} ^/404/$
-RewriteRule ^(.*)$ <YourRelativePathToPHPFile>/404/ [L]

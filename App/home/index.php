@@ -64,13 +64,20 @@ if (isset($_SESSION['userlogin']) != true) {
                 <?php
                 $result = mysqli_query($con, "SELECT * FROM crop");
                 while ($data = mysqli_fetch_array($result)) {
-                    echo '<div class="crop-item">
-                            <input type="hidden" name="crop-name" value="' . $data["id"] . '">
-                            <img src="../img/upload/crop/' . $data["image"] . '" alt="crop-image">
-                            <h2 id="crop-name">' . $data["name"] . '</h2> 
+                    echo '<div class="crop-item" id=' . $data["id"] . '>
+                    <img src="../img/upload/crop/' . $data["image"] . '" alt="crop-image">
+                    <h2 id="crop-name">' . $data["name"] . '</h2> 
                     </div>';
                 }
                 ?>
+                <input type="hidden" name="crop-id" id="crop-id" value="null">
+                <script>
+                    $(".crop-item").on('click', function(event) {
+                        var id = event.target.id;
+                        $("#crop-id").val(event.target.id);
+                        console.log(id + "selected id was ");
+                    });
+                </script>
             </div>
         </div>
         <!-- select-crop-section Ends -->
