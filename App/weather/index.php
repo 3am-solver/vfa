@@ -14,6 +14,7 @@ if (isset($_SESSION['userlogin']) != true) {
     <title>VFA @Virtual Farming Assistant APP</title>
     <?php include('../include/base-css.php'); ?>
     <link rel="stylesheet" href="../css/weather.css">
+    <link rel="stylesheet" href="weather-icons-wind.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="weather-icons.css">
 </head>
@@ -35,13 +36,6 @@ if (isset($_SESSION['userlogin']) != true) {
                                 <span></span>
                             </span>
                             <!-- End Settings Button -->
-
-                            <!-- Info Message-->
-                            <div id="info-msg">
-                                
-                            </div>
-                            <!-- End Info Message-->
-
                             <div id="settings" class="">
 
                                 <p id="settings-info"><i class="fa fa-cog" aria-hidden="true"></i> Settings</p>
@@ -124,7 +118,10 @@ if (isset($_SESSION['userlogin']) != true) {
                                         <span>Undefined</span>
                                     </p>
                                     <p id="date">
-                                        <span>Day, Day Month Year</span>
+                                        <span class="day">Monday</span>
+                                        <span class="date">14</span>
+                                        <span class="month">9</span>
+                                        <span class="year">2002</span>
                                     </p>
                                 </div>
 
@@ -211,8 +208,8 @@ if (isset($_SESSION['userlogin']) != true) {
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/index.js"></script>
+    <script src="moment.min.js"></script>
     <script src="weather-script.js"></script>
     <script src="weather-report.js"></script>
 </body>

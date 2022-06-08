@@ -27,9 +27,9 @@ if (isset($_SESSION['userlogin']) != true) {
             <h1>Home</h1>
             <div class="cards">
                 <?php
-                    if(isset($_GET['cropnotadded'])){
-                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error ! </strong> Sorry we are facing some Issues regarding to insert your crop details Please Try Again After some Time :)<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
-                    }
+                if (isset($_GET['cropnotadded'])) {
+                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error ! </strong> Sorry we are facing some Issues regarding to insert your crop details Please Try Again After some Time :)<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
+                }
                 ?>
                 <!-- Add new Farm Card -->
                 <div class="card" id="add-new-farm-data" style="cursor: pointer;">
@@ -50,7 +50,7 @@ if (isset($_SESSION['userlogin']) != true) {
                     <div class='middle'>
                         <span class='material-icons-sharp'>auto_graph</span>
                         <div class='left' style='width: 100%;margin: 0.8rem;'>
-                            <h3>".$crop_name['name']."</h3>
+                            <h3>" . $crop_name['name'] . "</h3>
                             <h1>Current State of Crop</h1>
                         </div>
                         <div class='progress'>
@@ -68,13 +68,14 @@ if (isset($_SESSION['userlogin']) != true) {
             </div>
             <!-- Script to open Farm Details Page -->
             <script>
-                    function openFarmDetail(){
-                        window.location.href='farm-detail.php'
-                    }
-                </script>
+                function openFarmDetail() {
+                    window.location.href = 'farm-detail.php'
+                }
+            </script>
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
+    <!-- Add new Farm Form  -->
     <form action="add-crop-tracking.php" method="POST">
         <!-- select-crop-section start-->
         <div class="select-crop-section crop-add">
@@ -104,7 +105,8 @@ if (isset($_SESSION['userlogin']) != true) {
             <span class="material-icons-sharp back-btn" onclick="this.parentElement.style.display = 'none';">keyboard_backspace</span>
             <div class="crop-add-body">
                 <h3>
-                    Please select the accureate Date of Sowing of your crop as it is an important part of your crop lifecycle
+                    Please select the accureate Date of Sowing of your crop as it is an important part of your crop
+                    lifecycle
                 </h3>
                 <h1 for="sowing-date">Enter sowing Date</h1>
                 <input type="date" name="sowing-date" id="sowing-date">
@@ -121,7 +123,8 @@ if (isset($_SESSION['userlogin']) != true) {
                         <h3>Why we Need Date of Sowing?</h3>
                     </div>
                     <div class="note-description">
-                        <h4>VFA will keep you informed about your entire crop cycle from the date of sowing to the final harvest</h4>
+                        <h4>VFA will keep you informed about your entire crop cycle from the date of sowing to the final
+                            harvest</h4>
                     </div>
                 </div>
             </div>
@@ -157,7 +160,8 @@ if (isset($_SESSION['userlogin']) != true) {
                         <h3>Why we Need Farm size?</h3>
                     </div>
                     <div class="note-description">
-                        <h4>VFA will help you get personalized information about the right quantity of seeds and fertilizers</h4>
+                        <h4>VFA will help you get personalized information about the right quantity of seeds and
+                            fertilizers</h4>
                     </div>
                 </div>
             </div>
@@ -169,6 +173,7 @@ if (isset($_SESSION['userlogin']) != true) {
 
     </form>
     <!-- Farm Area Ends here -->
+
     <script src="../js/index.js"></script>
 </body>
 

@@ -1,3 +1,10 @@
+<!-- Loading Area -->
+<div class="loader-container loadHide">
+    <div class="lprogress float shadow"> 
+        <div class="progress__item"></div>
+    </div>
+</div>
+<!-- Loading Area Ends Here -->
 <aside>
     <div class="top">
         <div class="logo">
@@ -36,7 +43,7 @@
         </a>
         <a href="../blog" class="sidebarA" id="blog">
             <span class="material-icons-sharp">
-            rss_feed
+                rss_feed
             </span>
             <h2>Blogs</h2>
         </a>

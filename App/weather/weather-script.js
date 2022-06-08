@@ -69,7 +69,7 @@ $(document).ready(function() {
 
   // --------- Start Functions ----------
   function getWeather(Loc, ShowLoading) {
-      let query = 'https://query.yahooapis.com/v1/public/yql?q=select units,astronomy,atmosphere,wind,location,item from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + Loc + '") and u="c"&format=json';
+      let query = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2d480b390f0a798553d5c58f302ec0f9`;
 
       $.getJSON(query, function(data) {
           if (data.query.results === null) {
@@ -632,8 +632,5 @@ $(document).ready(function() {
       $currentDay.removeClass('currentday');
       $DotMenu.eq(CurrentSlide).addClass('currentday');
   });
-
-  //----------- End Function Buttons -----------
-  //----------- End Function -----------
 
 }); // End $(document).ready
