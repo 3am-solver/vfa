@@ -1,178 +1,1170 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
-
-.card {
-    margin: 0 auto;
-    margin-top: 5%;
-    padding: 5px 30px;
-    height: 100vh;
-    border-radius: 3px;
-    background-color: #fff;
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, .2);
-    animation: open 2s cubic-bezier(.39, 0, .38, 1);
+body.green {
+  background: #6cd089;
 }
 
-@keyframes open {
-    from {
-        padding: 0 30px;
-        height: 0;
-    }
-    to {
-        height: 470px;
-    }
+body.green #copyright,
+body.green #forget {
+  color: #fff;
 }
 
-.h1,
-.h2,
-.h3{
+body.green #copyright a,
+body.green #forget a {
+  color: #fff;
+}
+
+body.purple {
+  background: #b557b7;
+}
+
+body.purple #copyright,
+body.purple #forget {
+  color: #fff;
+}
+
+body.purple #copyright a,
+body.purple #forget a {
+  color: #fff;
+}
+
+body.blue {
+  background: #6eadfd;
+}
+
+body.blue #copyright,
+body.blue #forget {
+  color: #fff;
+}
+
+body.blue #copyright a,
+body.blue #forget a {
+  color: #fff;
+}
+
+body.turqoise {
+  background: #31cec2;
+}
+
+body.turqoise #copyright,
+body.turqoise #forget {
+  color: #fff;
+}
+
+body.turqoise #copyright a,
+body.turqoise #forget a {
+  color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 840px;
+}
+
+.wrapper .align {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.wrapper .app {
+  position: relative;
+  min-height: 990px;
+  margin: 0 auto;
+  border-radius: 22px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.wrapper .app #main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #444;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.wrapper .app #main #introscreen {
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  transition: 1s;
+  text-align: center;
+}
+
+.wrapper .app #main #introscreen img {
+  height: 300px;
+  color: #f5c34f;
+  transition: 1s;
+}
+
+.wrapper .app #main #introscreen.sunloading img {
+  transform: rotate(90deg) scale(5, 5);
+}
+
+.wrapper .app #main #introscreen.animfin {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.wrapper .app #main #btn-right {
+  position: absolute;
+  width: 26px;
+  height: 22px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 5;
+  color: #fff;
+}
+
+.wrapper .app #main #btn-right span {
+  display: block;
+  position: absolute;
+  opacity: 1;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.wrapper .app #main #btn-right {
+  top: 16px;
+  right: 5px;
+  margin-right: 15px;
+}
+
+.wrapper .app #main #btn-right:hover {
+  cursor: pointer;
+}
+
+.wrapper .app #main #btn-right span:nth-child(n + 1):nth-child(-n + 4) {
+  width: 100%;
+  height: 3px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.wrapper .app #main #btn-right span:nth-child(1) {
+  top: 0px;
+}
+
+.wrapper .app #main #btn-right span:nth-child(n + 2):nth-child(-n + 3) {
+  top: 8px;
+}
+
+.wrapper .app #main #btn-right span:nth-child(4) {
+  top: 16px;
+}
+
+.wrapper .app #main #btn-right.open span {
+  background: #444;
+}
+
+.wrapper .app #main #btn-right.open span:nth-child(1),
+.wrapper .app #main #btn-right.open span:nth-child(4) {
+  top: 8px;
+  width: 0;
+}
+
+.wrapper .app #main #btn-right.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.wrapper .app #main #btn-right.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.wrapper .app #main #info-msg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 9000;
+  transition: 0.5s;
+  color: white;
+}
+
+.wrapper .app #main #info-msg .msg-box {
+  position: absolute;
+  width: 80%;
+  left: 0;
+  right: 0;
+  transform: scale(1);
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(245, 245, 245, 0.97) 100%
+  );
+  text-align: center;
+  transition: 0.5s;
+}
+
+.wrapper .app #main #info-msg .msg-box h1 {
+  color: #444;
+  font-size: 18px;
+  width: 92%;
+  height: auto;
+  line-height: 23px;
+  margin: 20px auto 0 auto;
+}
+
+.wrapper .app #main #info-msg .msg-box p {
+  color: #444;
+  font-size: 14px;
+  width: 87%;
+  min-height: 30px;
+  line-height: 30px;
+  margin: 13px auto 10px auto;
+  transition: 0.25s;
+}
+
+.wrapper .app #main #info-msg .msg-box p.load {
+  margin-top: 40px;
+}
+
+.wrapper .app #main #info-msg .msg-box p.show {
+  opacity: 1;
+}
+
+.wrapper .app #main #info-msg .msg-box p.hide {
+  opacity: 0;
+}
+
+.wrapper .app #main #info-msg .msg-box #ok-btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-top: solid 1px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.wrapper .app #main #info-msg .msg-box #ok-btn:hover {
+  background: #f9f9f9;
+}
+
+.wrapper .app #main #info-msg .msg-box #ok-btn:active {
+  background: #eaeaea;
+  line-height: 42px;
+}
+
+.wrapper .app #main #settings {
+  position: absolute;
+  width: inherit;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: #f2f2f2;
+  z-index: 3;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transition: 0.6s;
+  transform: translateX(100%);
+}
+
+.wrapper .app #main #settings.show {
+  transform: translateX(0px);
+}
+
+.wrapper .app #main #settings.show #settings-info {
+  color: #444;
+  background: #f9f9f9;
+}
+
+.wrapper .app #main #settings #settings-info {
+  height: 52px;
+  line-height: 52px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  background: #f9f9f9;
+  border-top-left-radius: 20px;
+  text-align: left;
+  text-indent: 10px;
+  font-size: 24px;
+  color: #f2f2f2;
+  letter-spacing: -1px;
+  transition: 0.65s ease-out;
+}
+
+.wrapper .app #main #settings ul {
+  width: 90%;
+  height: auto;
+  margin: 10px auto 0 auto;
+}
+
+.wrapper .app #main #settings ul li {
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
+  list-style: none;
+  transition: 0.4s;
+  transform: translateX(75px);
+}
+
+.wrapper .app #main #settings ul li .text {
+  width: 100%;
+  min-height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  text-indent: 12px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.wrapper .app #main #settings ul li .text .row {
+  width: 100%;
+}
+
+.wrapper .app #main #settings ul li .text .row span {
+  display: inline-block;
+  width: 20%;
+  height: 50px;
+  margin-left: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.wrapper .app #main #settings ul li .text .row span.green {
+  background: linear-gradient(135deg, #bcec68 -20%, #0eb9a4 120%);
+}
+
+.wrapper .app #main #settings ul li .text .row span.blue {
+  background: linear-gradient(135deg, #80ecf7 -20%, #706aff 120%);
+}
+
+.wrapper .app #main #settings ul li .text .row span.turqoise {
+  background: linear-gradient(135deg, #5de2ff -20%, #08bb8a 120%);
+}
+
+.wrapper .app #main #settings ul li .text .row span.purple {
+  background: linear-gradient(135deg, #f572c1 -20%, #6a37ab 120%);
+}
+
+.wrapper .app #main #settings ul li .text .row span.green.current,
+.wrapper .app #main #settings ul li .text .row span.blue.current,
+.wrapper .app #main #settings ul li .text .row span.turqoise.current,
+.wrapper .app #main #settings ul li .text .row span.purple.current {
+  transform: scale(1);
+}
+
+.wrapper .app #main #settings ul li .text .row span.green.current::before,
+.wrapper .app #main #settings ul li .text .row span.blue.current::before,
+.wrapper .app #main #settings ul li .text .row span.turqoise.current::before,
+.wrapper .app #main #settings ul li .text .row span.purple.current::before {
+  content: "\f00c";
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  text-shadow: none;
+  font-size: 25px;
+  font-family: "FontAwesome";
+  top: 5px;
+  left: 12px;
+}
+
+.wrapper .app #main #settings ul li .text .row span:hover {
+  transform: scale(0.9);
+}
+
+.wrapper .app #main #settings ul li .sub-info {
+  width: 90%;
+  height: 20px;
+  line-height: 20px;
+  margin: 2px auto -8px auto;
+  color: #727272;
+  font-size: 12px;
+  transition: 0.4s;
+}
+
+.wrapper .app #main #settings ul li.slideAnimation {
+  transform: translateX(0px);
+}
+
+.wrapper .app #main #settings ul li .switch {
+  position: absolute;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  right: 7px;
+  top: 6px;
+  text-shadow: none;
+}
+
+.wrapper .app #main #settings ul li .switch input {
+  display: none;
+}
+
+.wrapper .app #main #settings ul li .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ececec;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+  border-radius: 34px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.wrapper .app #main #settings ul li .slider span {
+  transform: translate(-6px, -6px);
+}
+
+.wrapper .app #main #settings ul li .slider .left,
+.wrapper .app #main #settings ul li .slider .right {
+  position: absolute;
+  width: 26px;
+  height: 28px;
+  top: 0px;
+  font-size: 18px;
+  z-index: 1;
+  text-align: center;
+  color: #727272;
+  transition: 0s;
+}
+
+.wrapper .app #main #settings ul li .slider .left {
+  left: 0px;
+}
+
+.wrapper .app #main #settings ul li .slider .left i {
+  position: relative;
+  top: 4px;
+  left: 1px;
+  font-size: 17px;
+}
+
+.wrapper .app #main #settings ul li .slider .left i.c {
+  position: relative;
+  top: 5px;
+  left: 0px;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.wrapper .app #main #settings ul li .slider .right {
+  right: 0px;
+}
+
+.wrapper .app #main #settings ul li .slider .right i {
+  position: relative;
+  top: 4px;
+  right: 1px;
+  font-size: 17px;
+}
+
+.wrapper .app #main #settings ul li .slider .right i.f {
+  position: relative;
+  top: 5px;
+  right: 3px;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.wrapper .app #main #settings ul li .slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  transition: 0.2s ease-out;
+  border-radius: 50%;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.wrapper .app #main #settings ul li input:checked + .slider:before {
+  transition: 0.2s ease-out;
+  transform: translateX(24px);
+}
+
+.wrapper .app #main #settings ul li input:checked + .slider p {
+  color: #fff;
+}
+
+.wrapper .app #main #settings ul li input:not(:checked) + .slider {
+  background: #ececec;
+}
+
+.wrapper .app #main #settings .search-container {
+  position: relative;
+  width: 90%;
+  height: 50px;
+  margin: 30px auto 0 auto;
+  transition: 0.4s;
+  transform: translateX(75px);
+}
+
+.wrapper .app #main #settings .search-container.slideAnimation {
+  transform: translateX(0px);
+}
+
+.wrapper .app #main #settings .search-container #search {
+  position: relative;
+  width: 60%;
+  height: 35px;
+  margin: 0 auto;
+  float: left;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  color: #444;
+  font-weight: bold;
+  text-indent: 30px;
+}
+
+.wrapper .app #main #settings .search-container #search:focus {
+  outline: none;
+}
+
+.wrapper
+  .app
+  #main
+  #settings
+  .search-container
+  #search::-webkit-input-placeholder {
+  color: #444;
+  opacity: 1;
+}
+
+.wrapper
+  .app
+  #main
+  #settings
+  .search-container
+  #search:focus::-webkit-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.wrapper .app #main #settings .search-container #search::-moz-placeholder {
+  color: #444;
+  opacity: 1;
+}
+
+.wrapper
+  .app
+  #main
+  #settings
+  .search-container
+  #search:focus::-moz-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+}
+
+.wrapper .app #main #settings .search-container #search:-ms-input-placeholder {
+  color: #444;
+  opacity: 1;
+}
+
+.wrapper
+  .app
+  #main
+  #settings
+  .search-container
+  #search:focus:-ms-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.wrapper .app #main #settings .search-container i {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  left: 10px;
+  top: 8px;
+  color: #444;
+}
+
+.wrapper .app #main #settings #update-button,
+.wrapper .app #main #settings #save-button {
+  position: relative;
+  width: 35%;
+  height: 35px;
+  float: right;
+  border: none;
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper .app #main #settings #save-button {
+  position: absolute;
+  float: none;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+}
+
+.wrapper .app #main #settings #update-button:hover,
+.wrapper .app #main #settings #save-button:hover {
+  opacity: 0.9;
+}
+
+.wrapper .app #main #settings #update-button:active,
+.wrapper .app #main #settings #save-button:active {
+  opacity: 1;
+  box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.25);
+  line-height: 37px;
+}
+
+.wrapper .app #main #settings.show + #central {
+  transform: scale(0.87) translateX(25px);
+}
+
+.wrapper .app #main #central {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  border-radius: 20px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.wrapper .app #main #central #top-menu-info {
+  position: absolute;
+  width: 100%;
+  height: 62px;
+  top: 0;
+  margin-top: 1px;
+}
+
+.wrapper .app #main #central #top-menu-info #location {
+  font-size: 27px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.wrapper .app #main #central #top-menu-info #location i {
+  font-size: 22px;
+  transform: translateY(-2px);
+}
+
+.wrapper .app #main #central #top-menu-info #date {
+  position: relative;
+  top: -8px;
+  left: 3px;
+  font-size: 13px;
+  text-align: center;
+  text-shadow: none;
+  color: #fff;
+}
+
+.wrapper .app #main #central #temp-div {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 20%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -webkit-transition: 0.75s ease-in-out;
+  transition: 0.75s ease-in-out;
+}
+
+.wrapper .app #main #central #temp-div #icon-temp {
+  margin: 0 auto;
+  width: 100%;
+  text-align: Center;
+  font-size: 45px;
+  color: #fff;
+}
+
+.wrapper .app #main #central #temp-div #icon-temp i {
+  position: relative;
+  top: 8px;
+}
+
+.wrapper .app #main #central #temp-div #icon-temp p {
+  display: inline-block;
+  font-size: 28px;
+  max-width: 210px;
+  line-height: 60px;
+}
+
+.wrapper .app #main #central #temp-div #current-temp-big {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.wrapper .app #main #central #temp-div #current-temp-big #ctb {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.wrapper .app #main #central #temp-div #current-temp-big #ctbicon {
+  position: relative;
+  top: -40px;
+  left: -5px;
+  font-weight: 100;
+  font-size: 40px;
+  vertical-align: unset;
+}
+
+.wrapper .app #main #central #temp-div.weather-menu-show {
+  transform: translate(-80px, -320px) scale(0.75);
+}
+
+.wrapper .app #main #central #weather-menu {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  transition: all 0.75s ease-in-out;
+}
+
+
+.wrapper .app #main #central #weather-menu.show #weather-menu-btn {
+  transform: rotate(180deg);
+}
+
+.wrapper .app #main #central #weather-menu.show ul {
+  opacity: 1;
+}
+
+.wrapper .app #main #central #weather-menu.settings {
+  background: #444;
+  color: #444;
+}
+
+.wrapper .app #main #central #weather-menu p {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-size: 26px;
+  line-height: 40px;
+  font-weight: 100;
+}
+
+.wrapper .app #main #central #weather-menu ul {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  list-style: none;
+  text-align: center;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.wrapper .app #main #central #weather-menu ul li {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 122px;
+  margin: 0px auto;
+  color: #fff;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.wrapper .app #main #central #weather-menu ul li.aswshow {
+  display: block;
+}
+
+.wrapper .app #main #central #weather-menu ul li.aswhidden {
+  display: none;
+}
+
+.wrapper .app #main #central #weather-menu ul li .day_left {
+  left: 0px;
+}
+
+.wrapper .app #main #central #weather-menu ul li .day_right {
+  right: 0px;
+}
+
+.wrapper .app #main #central #weather-menu ul li .day_left,
+.wrapper .app #main #central #weather-menu ul li .day_right {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 45px;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+.wrapper .app #main #central #weather-menu ul li .day_left i,
+.wrapper .app #main #central #weather-menu ul li .day_right i {
+  position: relative;
+  top: 7px;
+  font-size: 30px;
+}
+
+.wrapper .app #main #central #weather-menu ul li .day_left:hover,
+.wrapper .app #main #central #weather-menu ul li .day_right:hover {
+  cursor: pointer;
+  text-shadow: 0 0 20px #ffffff;
+}
+
+.wrapper .app #main #central #weather-menu ul li .col-1,
+.wrapper .app #main #central #weather-menu ul li .col-2,
+.wrapper .app #main #central #weather-menu ul li .col-3 {
+  display: inline-block;
+  width: 116px;
+  height: 72px;
+  margin: 0 auto;
+}
+
+.wrapper .app #main #central #weather-menu ul li .li_title {
+  padding: 12px 0;
+  font-size: 15px;
+  width: 100%;
+  height: 8px;
+  line-height: 8px;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.wrapper .app #main #central #weather-menu ul li #sunrise i,
+.wrapper .app #main #central #weather-menu ul li #sunset i,
+.wrapper .app #main #central #weather-menu ul li #totallight i,
+.wrapper .app #main #central #weather-menu ul li #humidity i,
+.wrapper .app #main #central #weather-menu ul li #pressure i,
+.wrapper .app #main #central #weather-menu ul li #visibility i,
+.wrapper .app #main #central #weather-menu ul li #chill i,
+.wrapper .app #main #central #weather-menu ul li #direction i,
+.wrapper .app #main #central #weather-menu ul li #speed i,
+.wrapper .app #main #central #weather-menu ul li .day10item i {
+  font-size: 26px;
+}
+
+.wrapper .app #main #central #weather-menu ul li #sunrise span,
+.wrapper .app #main #central #weather-menu ul li #sunset span,
+.wrapper .app #main #central #weather-menu ul li #totallight span,
+.wrapper .app #main #central #weather-menu ul li #humidity span,
+.wrapper .app #main #central #weather-menu ul li #pressure span,
+.wrapper .app #main #central #weather-menu ul li #visibility span,
+.wrapper .app #main #central #weather-menu ul li #chill span,
+.wrapper .app #main #central #weather-menu ul li #direction span,
+.wrapper .app #main #central #weather-menu ul li #speed span,
+.wrapper .app #main #central #weather-menu ul li .day10item span {
+  display: list-item;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.wrapper .app #main #central #weather-menu ul li #sunrise span i,
+.wrapper .app #main #central #weather-menu ul li #sunset span i,
+.wrapper .app #main #central #weather-menu ul li #totallight span i,
+.wrapper .app #main #central #weather-menu ul li #humidity span i,
+.wrapper .app #main #central #weather-menu ul li #pressure span i,
+.wrapper .app #main #central #weather-menu ul li #visibility span i,
+.wrapper .app #main #central #weather-menu ul li #chill span i,
+.wrapper .app #main #central #weather-menu ul li #direction span i,
+.wrapper .app #main #central #weather-menu ul li #speed span i,
+.wrapper .app #main #central #weather-menu ul li .day10item span i {
+  position: relative;
+  top: 3px;
+  font-size: 14px;
+  font-style: normal;
+}
+
+.wrapper .app #main #central #weather-menu ul li #sunrise span strong,
+.wrapper .app #main #central #weather-menu ul li #sunset span strong,
+.wrapper .app #main #central #weather-menu ul li #totallight span strong,
+.wrapper .app #main #central #weather-menu ul li #humidity span strong,
+.wrapper .app #main #central #weather-menu ul li #pressure span strong,
+.wrapper .app #main #central #weather-menu ul li #visibility span strong,
+.wrapper .app #main #central #weather-menu ul li #chill span strong,
+.wrapper .app #main #central #weather-menu ul li #direction span strong,
+.wrapper .app #main #central #weather-menu ul li #speed span strong,
+.wrapper .app #main #central #weather-menu ul li .day10item span strong {
+  position: relative;
+  top: 3px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.wrapper .app #main #central #weather-menu ul li #hd,
+.wrapper .app #main #central #weather-menu ul li #pd,
+.wrapper .app #main #central #weather-menu ul li #vd,
+.wrapper .app #main #central #weather-menu ul li #srd,
+.wrapper .app #main #central #weather-menu ul li #td,
+.wrapper .app #main #central #weather-menu ul li #ssd,
+.wrapper .app #main #central #weather-menu ul li #cd,
+.wrapper .app #main #central #weather-menu ul li #dd,
+.wrapper .app #main #central #weather-menu ul li #sd {
+  margin-top: 0px;
+}
+
+.wrapper .app #main #central #weather-menu ul li .li_row {
+  overflow: hidden;
+  height: 70px;
+  margin-top: 5px;
+  transition: 0.25s;
+  z-index: 80;
+}
+
+.wrapper .app #main #central #weather-menu ul li #dotmenu {
+  width: 100%;
+  height: 27px;
+  margin: 10px auto 0 auto;
+  z-index: 1000;
+}
+
+.wrapper .app #main #central #weather-menu ul li #dotmenu span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 20px;
+  margin-left: 2px;
+  transition: 0.2s;
+}
+
+.wrapper .app #main #central #weather-menu ul li #dotmenu span.currentday {
+  transform: scale(1.4);
+}
+
+.wrapper .app #main #central #weather-menu ul li #dotmenu span:hover {
+  cursor: pointer;
+}
+
+.wrapper .app #main #central #weather-menu ul li:last-child {
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+.wrapper .app #main #central #weather-menu #weather-menu-btn {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.wrapper .app #main #central #weather-menu #weather-menu-btn:hover {
+  text-shadow: 0 0 10px #ffffff;
+  cursor: pointer;
+}
+
+.wrapper .app #central.green {
+  background: linear-gradient(135deg, #bcec68 -20%, #0eb9a4 120%);
+}
+
+.wrapper .app #main.green.poor-Mozilla {
+  background: #f2f2f2;
+}
+
+.wrapper .app #main.green #settings ul li input:checked + .slider {
+  background: #6cd089;
+}
+
+.wrapper .app #main.green #settings #update-button,
+.wrapper .app #main.green #settings #save-button {
+  background: linear-gradient(135deg, #bcec68 -20%, #0eb9a4 120%);
+}
+
+.wrapper .app #main.green #info-msg .msg-box div {
+  color: #6cd089;
+}
+
+.wrapper .app #main.green > #central {
+  background: linear-gradient(135deg, #bcec68 -20%, #0eb9a4 120%);
+}
+
+.wrapper .app #central.blue {
+  background: linear-gradient(135deg, #80ecf7 -20%, #706aff 120%);
+}
+
+.wrapper .app #main.blue.poor-Mozilla {
+  background: #f2f2f2;
+}
+
+.wrapper .app #main.blue #settings ul li input:checked + .slider {
+  background: #6eadfd;
+}
+
+.wrapper .app #main.blue #settings #update-button,
+.wrapper .app #main.blue #settings #save-button {
+  background: linear-gradient(135deg, #80ecf7 -20%, #706aff 120%);
+}
+
+.wrapper .app #main.blue #info-msg .msg-box div {
+  color: #6eadfd;
+}
+
+.wrapper .app #main.blue > #central {
+    background: linear-gradient(135deg, #90fd9f -20%, #0beecfd3 120%);
+}
+
+.wrapper .app #main.purple.poor-Mozilla {
+  background: #f2f2f2;
+}
+
+.wrapper .app #main.purple #settings ul li input:checked + .slider {
+  background: #b557b7;
+}
+
+.wrapper .app #main.purple #settings #update-button,
+.wrapper .app #main.purple #settings #save-button {
+  background: linear-gradient(135deg, #f572c1 -20%, #6a37ab 120%);
+}
+
+.wrapper .app #main.purple #info-msg .msg-box div {
+  color: #b557b7;
+}
+
+.wrapper .app #main.purple > #central {
+  background: linear-gradient(135deg, #f572c1 -20%, #6a37ab 120%);
+}
+
+.wrapper .app #central.turqoise {
+  background: linear-gradient(135deg, #5de2ff -20%, #08bb8a 120%);
+}
+
+.wrapper .app #main.turqoise.poor-Mozilla {
+  background: #f2f2f2;
+}
+
+.wrapper .app #main.turqoise #settings ul li input:checked + .slider {
+  background: #31cec2;
+}
+
+.wrapper .app #main.turqoise #settings #update-button,
+.wrapper .app #main.turqoise #settings #save-button {
+  background: linear-gradient(135deg, #5de2ff -20%, #08bb8a 120%);
+}
+
+.wrapper .app #main.turqoise #info-msg .msg-box div {
+  color: #31cec2;
+}
+
+
+@-moz-document url-prefix() {
+  .wrapper .app #main #settings ul li .slider .left {
+    top: 1px;
+  }
+
+  .wrapper .app #main #settings ul li .slider .left i {
     position: relative;
-}
+    top: 2px;
+    left: 1px;
+  }
 
-.h1 {
-    float: right;
-    color: #666;
-    font-weight: 300;
-    font-size: 6.5rem;
-    line-height: .2em;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
-}
-
-.h2 {
-    font-weight: 300;
-    font-size: 2.25em;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1);
-}
-
-.h3 {
-    float: left;
-    margin-right: 33px;
-    color: #777;
-    font-weight: 400;
-    font-size: 1em;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .1s;
-}
-
-span {
-    margin-left: 24px;
-    color: #999;
-    font-weight: 300;
-}
-
-span span {
-    margin-left: 0;
-}
-
-.dot {
-    font-size: .9em;
-}
-
-.sky {
+  .wrapper .app #main #settings ul li .slider .left i.c {
     position: relative;
-    margin-top: 108px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #03A9F4;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
-}
+    top: 3px;
+    left: 1px;
+  }
 
-.sun {
+  .wrapper .app #main #settings ul li .slider .right i {
     position: relative;
-    top: -3px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background-color: #FFEB3B;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .5s;
-}
+    top: 3px;
+    right: 1px;
+  }
 
-.cloud {
-    position: absolute;
-    top: 60px;
-    left: 30px;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .7s;
-}
-
-.cloud:before,
-.cloud:after {
-    position: absolute;
-    display: block;
-    content: "";
-}
-
-.cloud:before {
-    margin-left: -10px;
-    width: 51px;
-    height: 18px;
-    background: #fff;
-}
-
-.cloud:after {
-    position: absolute;
-    top: -10px;
-    left: -22px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 50px -6px 0 6px #fff, 25px -19px 0 10px #fff;
-}
-
-table {
+  .wrapper .app #main #settings ul li .slider .right i.f {
     position: relative;
-    top: 10px;
-    width: 100%;
-    text-align: center;
+    top: 4px;
+    right: 2px;
+  }
 }
 
-tr:nth-child(1) td:nth-child(1),
-tr:nth-child(1) td:nth-child(2),
-tr:nth-child(1) td:nth-child(3),
-tr:nth-child(1) td:nth-child(4),
-tr:nth-child(1) td:nth-child(5) {
-    padding-bottom: 32px;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .7s;
+#copyright {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #757575;
+  width: 250px;
+  margin: 30px auto 0 auto;
 }
 
-tr:nth-child(2) td:nth-child(1),
-tr:nth-child(2) td:nth-child(2),
-tr:nth-child(2) td:nth-child(3),
-tr:nth-child(2) td:nth-child(4),
-tr:nth-child(2) td:nth-child(5) {
-    padding-bottom: 7px;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .9s;
+#copyright a {
+  text-decoration: none;
+  color: #5a5a5a;
+  transition: all ease-in-out 0.35s;
 }
 
-tr:nth-child(3) td:nth-child(1),
-tr:nth-child(3) td:nth-child(2),
-tr:nth-child(3) td:nth-child(3),
-tr:nth-child(3) td:nth-child(4),
-tr:nth-child(3) td:nth-child(5) {
-    padding-bottom: 7px;
-    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .9s;
+#copyright a:hover {
+  color: #8d8d8d;
 }
 
-tr:nth-child(2),
-tr:nth-child(3) {
-    font-size: .9em;
+#forget {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+  color: #757575;
+  margin: 10px auto 25px auto;
+  font-family: sans-serif;
+  width: 350px;
+  text-align: center;
 }
 
-tr:nth-child(3) {
-    color: #999;
+#forget a {
+  text-decoration: none;
+  color: #5a5a5a;
+  transition: all ease-in-out 0.35s;
 }
 
-@-webkit-keyframes up {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(15px);
-    }
-    50% {
-        opacity: 0;
-        -webkit-transform: translateY(15px);
-    }
-    99% {
-        -webkit-animation-play-state: paused;
-    }
-    100% {
-        opacity: 1;
-    }
+#forget a:hover {
+  color: #8d8d8d;
+}
+
+#forget.hide {
+  transition: all ease-in-out 0.35s;
+  opacity: 0;
 }

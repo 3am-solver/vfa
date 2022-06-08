@@ -10,7 +10,7 @@
                 <small class="text-muted"></small>
             </div>
             <div class="profile-photo">
-                <img src="../img/carousel-image02.jpg" alt="profile_picture">
+                <img src="../img/default-user.png" alt="profile_picture">
             </div>
         </div>
     </div>

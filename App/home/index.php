@@ -26,6 +26,11 @@ if (isset($_SESSION['userlogin']) != true) {
             <!-- Card Section -->
             <h1>Home</h1>
             <div class="cards">
+                <?php
+                    if(isset($_GET['cropnotadded'])){
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error ! </strong> Sorry we are facing some Issues regarding to insert your crop details Please Try Again After some Time :)<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
+                    }
+                ?>
                 <!-- Add new Farm Card -->
                 <div class="card" id="add-new-farm-data" style="cursor: pointer;">
                     <div class="middle">
@@ -33,26 +38,40 @@ if (isset($_SESSION['userlogin']) != true) {
                         <h2>Add New Crop Details </h2>
                     </div>
                 </div>
-                <div class="card" style="cursor: pointer;" onclick="window.location.href='farm-detail.php'">
-                    <div class="middle">
-                        <span class="material-icons-sharp">auto_graph</span>
-                        <div class="left" style="width: 100%;margin: 0.8rem;">
-                            <h3>Crop Name</h3>
+                <!-- Crop tracing Card  -->
+                <?php
+                $farmer_id = $_SESSION['farmerId'];
+                $result = mysqli_query($con, "SELECT * FROM `crop-tracking` WHERE `farmer_id` = $farmer_id");
+                // Query to get name of Farmers Crop 
+                $crop_nameSQL = "SELECT `crop-tracking`.`crop_id`, `crop`.`name`\n" . "FROM `crop-tracking`\n" . "INNER JOIN `crop` ON `crop-tracking`.`crop_id` = `crop`.`id`;";
+                $crop_nameResult = mysqli_query($con, $crop_nameSQL);
+                while ($data = mysqli_fetch_array($result) && $crop_name = mysqli_fetch_array($crop_nameResult)) {
+                    echo "<div class='card' style='cursor: pointer;' onclick='openFarmDetail()'>
+                    <div class='middle'>
+                        <span class='material-icons-sharp'>auto_graph</span>
+                        <div class='left' style='width: 100%;margin: 0.8rem;'>
+                            <h3>".$crop_name['name']."</h3>
                             <h1>Current State of Crop</h1>
                         </div>
-                        <div class="progress">
+                        <div class='progress'>
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
-                            <div class="number">
+                            <div class='number'>
                                 <p>84%</p>
                             </div>
                         </div>
                     </div>
-                    <!-- <small class="text-muted">Last 24 hours</small> -->
-                </div>
-
+                </div>";
+                }
+                ?>
             </div>
+            <!-- Script to open Farm Details Page -->
+            <script>
+                    function openFarmDetail(){
+                        window.location.href='farm-detail.php'
+                    }
+                </script>
         </main>
         <?php include('../include/right-section.php'); ?>
     </div>
@@ -64,7 +83,7 @@ if (isset($_SESSION['userlogin']) != true) {
                 <?php
                 $result = mysqli_query($con, "SELECT * FROM crop");
                 while ($data = mysqli_fetch_array($result)) {
-                    echo '<div class="crop-item" id=' . $data["id"] . '>
+                    echo '<div class="crop-item" onClick="reply_click(this.id)" id=' . $data["id"] . '>
                     <img src="../img/upload/crop/' . $data["image"] . '" alt="crop-image">
                     <h2 id="crop-name">' . $data["name"] . '</h2> 
                     </div>';
@@ -72,11 +91,10 @@ if (isset($_SESSION['userlogin']) != true) {
                 ?>
                 <input type="hidden" name="crop-id" id="crop-id" value="null">
                 <script>
-                    $(".crop-item").on('click', function(event) {
-                        var id = event.target.id;
-                        $("#crop-id").val(event.target.id);
-                        console.log(id + "selected id was ");
-                    });
+                    // Getting Selected Crop Id
+                    function reply_click(clicked_id) {
+                        $("#crop-id").val(clicked_id);
+                    }
                 </script>
             </div>
         </div>
@@ -151,7 +169,6 @@ if (isset($_SESSION['userlogin']) != true) {
 
     </form>
     <!-- Farm Area Ends here -->
-
     <script src="../js/index.js"></script>
 </body>
 

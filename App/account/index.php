@@ -25,7 +25,7 @@
                     <h2 style="cursor:pointer; color:snow;" onclick="show_edit_box()">Edit Profile</h2>
                 </div>
                 <div class="middle">
-                    <img src="../img/bg.jpg" alt="profile-image">
+                    <img src="../img/default-user.png" alt="profile-image">
                     <h2 style="color: white;"><?=$_SESSION['farmerName']?></h2>
                     <div>
                         <!-- <span class="material-icons-sharp" style="color: white;">

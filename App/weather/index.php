@@ -1,8 +1,8 @@
 <?php
-    require("../connection/conn.php");
-    if (isset($_SESSION['userlogin']) != true) {
-        echo "<script> document.location = '../auth';</script>";
-    }
+require("../connection/conn.php");
+if (isset($_SESSION['userlogin']) != true) {
+    echo "<script> document.location = '../auth';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,256 +14,198 @@
     <title>VFA @Virtual Farming Assistant APP</title>
     <?php include('../include/base-css.php'); ?>
     <link rel="stylesheet" href="../css/weather.css">
-    <style>
-        main div {
-            color: var(--color-primary);
-        }
-
-        .temp {
-            color: green;
-        }
-
-        .current-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .date-container {
-            font-weight: 100;
-        }
-
-        .date-container .time {
-            font-size: 70px;
-        }
-
-        .date-container #am-pm {
-            font-size: 30px;
-            margin-left: 20px;
-        }
-
-        .date-container .date {
-            font-size: 30px;
-        }
-
-        .place-container {
-            text-align: end;
-        }
-
-        .place-container .time-zone {
-            font-size: 30px;
-            font-weight: 100;
-        }
-
-        .place-container .country {
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .current-info .others {
-            display: flex;
-            flex-direction: column;
-            background: rgba(24, 24, 27, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-            border: 1px solid #eee;
-        }
-
-        .current-info .others .weather-item {
-            display: flex;
-            justify-content: space-between;
-        }
-
-
-        .future-forecast {
-            display: flex;
-            color: white;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .future-forecast .today {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            padding: 15px;
-            padding-right: 40px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.2)
-        }
-
-        .future-forecast .today .day {
-            padding: 5px 15px;
-            background: #3c3c44;
-            border-radius: 50px;
-            text-align: center;
-        }
-
-        .future-forecast .today .temp {
-            font-size: 18px;
-            padding-top: 15px;
-        }
-
-        .future-forecast .weather-forecast {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .weather-forecast .weather-forecast-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            border: 1px solid;
-            padding: 15px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.2)
-        }
-
-        .weather-forecast .weather-forecast-item .day {
-            padding: 5px 15px;
-            background: #3C3C44;
-            border-radius: 50px;
-            text-align: center;
-        }
-
-        .weather-forecast .weather-forecast-item .temp {
-            font-weight: 100;
-            font-size: 12px;
-        }
-
-
-        @media only screen and (max-width:730px) {
-
-            .container {
-                padding: 20px;
-            }
-
-            .future-forecast {
-                justify-content: start;
-                align-items: none;
-                overflow-y: scroll;
-            }
-
-            .future-forecast .today .temp {
-                font-size: 16px;
-            }
-
-            .date-container .time {
-                font-size: 50px;
-            }
-
-            .date-container #am-pm {
-                font-size: 20px;
-            }
-
-            .date-container .date {
-                font-size: 20px;
-            }
-
-            .place-container {
-                text-align: end;
-                margin-top: 15px;
-            }
-
-            .place-container .time-zone {
-                font-size: 20px;
-            }
-
-            .current-info .others {
-                padding: 12px;
-            }
-
-            .current-info .others .weather-item {
-                font-size: 14px;
-            }
-
-        }
-
-        @media only screen and (max-width: 1400px) {
-            .future-forecast {
-                justify-content: start;
-                align-items: none;
-                overflow-x: scroll;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="weather-icons.css">
 </head>
 
-<body>
+<body onload="getLocation()">
     <div class="container">
         <?php include('../include/sidebar.php'); ?>
         <main>
             <h1>Weather</h1>
-            <div class="current-info">
+            <div class="wrapper">
+                <div class="align">
+                    <div class="app">
+                        <div id="main">
+                            <!-- Settings Button -->
+                            <span id="btn-right">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <!-- End Settings Button -->
 
-                <div class="date-container">
-                    <div class="time" id="time">
-                        12:30 <span id="am-pm">PM</span>
-                    </div>
-                    <div class="date" id="date">
-                        Monday, 25 May
-                    </div>
+                            <!-- Info Message-->
+                            <div id="info-msg">
+                                
+                            </div>
+                            <!-- End Info Message-->
 
-                </div>
-                <div class="place-container">
-                    <div class="time-zone" id="time-zone">Asia/Kolkata</div>
-                    <div id="country" class="country">IN</div>
-                </div>
+                            <div id="settings" class="">
 
-            </div>
-            <div class="future-forecast">
-                <div class="today" id="current-temp">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                    <div class="other">
-                        <div class="day">Monday</div>
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
-                </div>
+                                <p id="settings-info"><i class="fa fa-cog" aria-hidden="true"></i> Settings</p>
 
-                <div class="weather-forecast" id="weather-forecast">
-                    <div class="weather-forecast-item">
-                        <div class="day">Tue</div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
-                    <div class="weather-forecast-item">
-                        <div class="day">Wed</div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
-                    <div class="weather-forecast-item">
-                        <div class="day">Thur</div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
-                    <div class="weather-forecast-item">
-                        <div class="day">Fri</div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
-                    <div class="weather-forecast-item">
-                        <div class="day">Sat</div>
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="temp">Night - 25.6&#176; C</div>
-                        <div class="temp">Day - 35.6&#176; C</div>
-                    </div>
+                                <div class="search-container">
+                                    <label>
+                                        <input autocomplete="off" type="text" id="search" placeholder="Search City..." required />
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                        <button type="button" id="update-button" placeholder="Update">Update</button>
+                                    </label>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="text">
+                                            <p>Temperature Unit</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="unit">
+                                            <div class="slider">
+                                                <p class="left"><i class="c" aria-hidden="true">°C</i></p>
+                                                <p class="right"><i class="f" aria-hidden="true">°F</i></p>
+                                            </div>
+                                        </label>
+                                        <div class="sub-info">Choose between ºC or ºF.</div>
+                                    </li>
 
+                                    <li>
+                                        <div class="text">
+                                            <p>Atmospheric Conditions</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="atm">
+                                            <div class="slider">
+                                                <p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+                                                <p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+                                            </div>
+                                        </label>
+                                        <div class="sub-info">Humidity, pressure and visibility of the atmosphere.</div>
+                                    </li>
+
+                                    <li>
+                                        <div class="text">
+                                            <p>Sunrise/Sunset</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="sun">
+                                            <div class="slider">
+                                                <p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+                                                <p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+                                            </div>
+                                        </label>
+                                        <div class="sub-info">Sunset/Sunrise hours and total hours of light.</div>
+                                    </li>
+
+                                    <li>
+                                        <div class="text">
+                                            <p>Wind Conditions</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="wind">
+                                            <div class="slider">
+                                                <p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+                                                <p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+                                            </div>
+                                        </label>
+                                        <div class="sub-info">Chill, direction and the speed of the wind.</div>
+                                    </li>
+                                </ul>
+
+                                <button type="button" id="save-button" placeholder="Update">Save</button>
+
+
+                            </div>
+                            <!-- End Settings Menu  -->
+
+                            <div id="central">
+                                <div id="top-menu-info">
+                                    <p id="location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <span>Undefined</span>
+                                    </p>
+                                    <p id="date">
+                                        <span>Day, Day Month Year</span>
+                                    </p>
+                                </div>
+
+                                <div id="temp-div">
+                                    <div id="icon-temp">
+                                        <p>Sunny</p>
+                                        <i class="wi wi-day-cloudy" aria-hidden="true"></i>
+                                    </div>
+                                    <p id="current-temp-big">
+                                        <span id="ctb">14</span>
+                                        <span id="ctbicon">ºC</span>
+                                    </p>
+                                </div>
+
+                                <div id="weather-menu" class="show">
+                                    <ul>
+                                        <li id="atmli">
+                                            <p class="li_title">Atmospheric Conditions</p>
+                                            <div id="humidity" class="col-1">
+                                                <i class="wi wi-humidity" aria-hidden="true"></i>
+                                                <span>Humidity <br> <span id="hd">NaN</span></span>
+                                            </div>
+                                            <div id="pressure" class="col-2">
+                                                <i class="wi wi-barometer" aria-hidden="true"></i>
+                                                <span>Pressure <br> <span id="pd">NaN</span></span>
+                                            </div>
+                                            <div id="visibility" class="col-3">
+                                                <i class="wi wi-day-fog" aria-hidden="true"></i>
+                                                <span>Visibility <br> <span id="vd">NaN</span></span>
+                                            </div>
+                                        </li>
+                                        <li id="sunli">
+                                            <p class="li_title">Sunrise/Sunset</p>
+                                            <div id="sunrise" class="col-1">
+                                                <i class="wi wi-sunrise" aria-hidden="true"></i>
+                                                <span>Sunrise <br> <span id="srd">NaN</span></span>
+                                            </div>
+                                            <div id="totallight" class="col-2">
+                                                <i class="wi wi-time-4" aria-hidden="true"></i>
+                                                <span>Hours of light<br> <span id="td">NaN</span></span>
+                                            </div>
+                                            <div id="sunset" class="col-3">
+                                                <i class="wi wi-sunset" aria-hidden="true"></i>
+                                                <span>Sunset <br> <span id="ssd">NaN</span></span>
+                                            </div>
+                                        </li>
+                                        <li id="windli">
+                                            <p class="li_title">Wind Conditions</p>
+                                            <div id="chill" class="col-1">
+                                                <i class="wi wi-thermometer-exterior" aria-hidden="true"></i>
+                                                <span>Feels Like <br> <span id="cd">NaN</span></span>
+                                            </div>
+                                            <div id="direction" class="col-2">
+                                                <i class="wi wi-wind from-270-deg" aria-hidden="true"></i>
+                                                <span>Direction <br> <span id="dd">NaN</span></span>
+                                            </div>
+                                            <div id="speed" class="col-3">
+                                                <i class="wi wi-strong-wind" aria-hidden="true"></i>
+                                                <span>Speed <br> <span id="sd">NaN</span></span>
+                                            </div>
+                                        </li>
+                                        <li id="forecastli">
+                                            <p class="li_title">3 Days Forecast</p>
+                                            <div class="col-1 day10item">
+                                                <i class="wi wi-day-sunny" aria-hidden="true"></i>
+                                                <span>NaN <br> <i>NaN°</i></span>
+                                            </div>
+                                            <div class="col-2 day10item">
+                                                <i class="wi wi-day-cloudy" aria-hidden="true"></i>
+                                                <span>NaN <br> <i>NaN°</i></span>
+                                            </div>
+                                            <div class="col-3 day10item">
+                                                <i class="wi wi-day-rain" aria-hidden="true"></i>
+                                                <span>NaN <br> <i>NaN°</i></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -272,6 +214,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/index.js"></script>
     <script src="weather-script.js"></script>
+    <script src="weather-report.js"></script>
 </body>
 
 </html>
