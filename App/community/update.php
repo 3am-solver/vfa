@@ -1,8 +1,6 @@
 <?php
 require("../connection/conn.php");
-if (isset($_SESSION['userlogin']) != true) {
-    echo "<script> document.location = '../auth';</script>";
-}
+
     $id = $_GET['id'];
     echo "Updating Records" . "<br>";
     echo "Id = " . $id . "<br>";

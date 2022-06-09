@@ -1,8 +1,5 @@
 <?php
     require("../connection/conn.php");
-    if (isset($_SESSION['userlogin']) != true) {
-        echo "<script> document.location = '../auth';</script>";
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

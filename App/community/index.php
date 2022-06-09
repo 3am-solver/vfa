@@ -1,8 +1,6 @@
 <?php
 require("../connection/conn.php");
-if (isset($_SESSION['userlogin']) != true) {
-    echo "<script> document.location = '../auth';</script>";
-}
+
 $msg = null;
 if (isset($_POST['upload'])) {
 
@@ -75,6 +73,10 @@ if (isset($_POST['upload'])) {
         .add-post-btn>span:hover {
             color: #fbb900;
         }
+        .btns{
+            margin: 0 auto;
+            width: max-content;
+        }
 
         .btns>a>span {
             outline: none;
@@ -93,6 +95,14 @@ if (isset($_POST['upload'])) {
         .btns>a>span:hover {
             background-color: orange;
         }
+        .liked{
+            pointer-events: none;
+            color: orange;
+        }
+
+        .liked>span{
+            background-color: orange !important;
+        }
     </style>
 </head>
 
@@ -105,12 +115,15 @@ if (isset($_POST['upload'])) {
                 <?php
                 $result = mysqli_query($con, "SELECT * FROM community");
                 while ($data = mysqli_fetch_array($result)) {
+                    $fid = $data['farmer-id'];
+                    $fname = mysqli_query($con, "SELECT * FROM farmer where id = $fid");
+                    $fdata = mysqli_fetch_array($fname);
                     echo '<div class="post card" id="' . $data['id'] . '">
                     <div class="post-top">
                         <div class="post-profile-photo">
                             <img src="../img/default-user.png" alt="profile_picture">
                         </div>
-                        <h2><i style="color:orange"">@</i>' . $_SESSION['farmerName'] . '</h2>
+                        <h2><i style="color:orange"">@</i>' . $fdata['name'] . '</h2>
                         <span class="primary">Follow</span>
                     </div>
                     <div class="data">
@@ -119,8 +132,8 @@ if (isset($_POST['upload'])) {
                         </div>
                         <div class="post-stats">
                             <ul>
-                                <li><b class="post-stat-count" style="color: orange; font-size: 1.5rem;" >' . $data['post-like'] . '</b> Likes</li>
-                                <li><b class="post-stat-count" style="color: orange; font-size: 1.5rem;" >' . $data['cmt-count'] . '</b> Comments</li>
+                                <li><b class="post-stat-count" style="color: orange; font-size: 1.5rem;" >'.$data['post-like'].'</b> Likes</li>
+                                <li><b class="post-stat-count" style="color: orange; font-size: 1.5rem;" >0</b> Comments</li>
                                 <li><b class="post-stat-count" style="color: orange; font-size: 1.5rem;" >' . $data['share'] . '</b> Share</li>
                             </ul>
                         </div>
@@ -128,7 +141,8 @@ if (isset($_POST['upload'])) {
                     <img src="../img/upload/community/' . $data['post-picture'] . '" alt="post-img" class="post-img">
                     <!--Like/Comment/Share Buttons-->
                     <div class="btns">
-                        <a href="update.php?id=' . $data['id'] . '&like=true"> <span class="material-icons-sharp"> thumb_up_alt </span> </a> 
+                        <a class="liked" href="like.php?postid=' . $data['id'] . '&&like=true"> <span class="material-icons-sharp"> thumb_up_alt </span> </a>
+                        <a href="like.php?"> <span class="material-icons-sharp"> thumb_down </span> </a> 
                         <a href="update.php?id=' . $data['id'] . '&cmt=true"> <span class="material-icons-sharp"> try </span> </a>
                         <a href="update.php?id=' . $data['id'] . '&share=true"> <span class="material-icons-sharp"> share </span> </a>
                      </div>

@@ -16,7 +16,9 @@
         "Rubbish": true,
         ".vscode": true,
         "readme": true,
-        "App-v4": true
+        "App-v4": true,
+        "App-v5": true,
+        "ajax": true
     },
     "hide-files.files": [
         "App-v3",
@@ -25,6 +27,8 @@
         "Rubbish",
         ".vscode",
         "readme",
-        "App-v4"
+        "App-v4",
+        "App-v5",
+        "ajax"
     ]
 }

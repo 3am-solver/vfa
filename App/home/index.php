@@ -1,11 +1,5 @@
 <?php
 require("../connection/conn.php");
-// echo "<br>farmer id is in session = ".$_SESSION['farmerId'];
-// echo "<br>farmer Name is in session = ".$_SESSION['farmerName'];
-// echo "<br>farmer username is in session = ".$_SESSION['farmerUsername'];
-if (isset($_SESSION['userlogin']) != true) {
-    echo "<script> document.location = '../auth';</script>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,11 +20,6 @@ if (isset($_SESSION['userlogin']) != true) {
             <!-- Card Section -->
             <h1>Home</h1>
             <div class="cards">
-                <?php
-                if (isset($_GET['cropnotadded'])) {
-                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error ! </strong> Sorry we are facing some Issues regarding to insert your crop details Please Try Again After some Time :)<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
-                }
-                ?>
                 <!-- Add new Farm Card -->
                 <div class="card" id="add-new-farm-data" style="cursor: pointer;">
                     <div class="middle">
@@ -39,18 +28,11 @@ if (isset($_SESSION['userlogin']) != true) {
                     </div>
                 </div>
                 <!-- Crop tracing Card  -->
-                <?php
-                $farmer_id = $_SESSION['farmerId'];
-                $result = mysqli_query($con, "SELECT * FROM `crop-tracking` WHERE `farmer_id` = $farmer_id");
-                // Query to get name of Farmers Crop 
-                $crop_nameSQL = "SELECT `crop-tracking`.`crop_id`, `crop`.`name`\n" . "FROM `crop-tracking`\n" . "INNER JOIN `crop` ON `crop-tracking`.`crop_id` = `crop`.`id`;";
-                $crop_nameResult = mysqli_query($con, $crop_nameSQL);
-                while ($data = mysqli_fetch_array($result) && $crop_name = mysqli_fetch_array($crop_nameResult)) {
-                    echo "<div class='card' style='cursor: pointer;' onclick='openFarmDetail()'>
+                <div class='card' style='cursor: pointer;' onclick='openFarmDetail()'>
                     <div class='middle'>
                         <span class='material-icons-sharp'>auto_graph</span>
                         <div class='left' style='width: 100%;margin: 0.8rem;'>
-                            <h3>" . $crop_name['name'] . "</h3>
+                            <h3>Crop Name</h3>
                             <h1>Current State of Crop</h1>
                         </div>
                         <div class='progress'>
@@ -63,8 +45,6 @@ if (isset($_SESSION['userlogin']) != true) {
                         </div>
                     </div>
                 </div>";
-                }
-                ?>
             </div>
             <!-- Script to open Farm Details Page -->
             <script>

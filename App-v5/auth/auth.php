@@ -2,7 +2,7 @@
 require('../connection/conn.php');
 if (isset($_GET["signout"])) {
     $check = $_GET["signout"];
-    if ($check) {
+    if ($check) { 
         session_destroy();
         echo "<script> document.location = '../auth';</script>";
     }
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $result = mysqli_query($con, $sql);
         if ($result) {
-            echo "SignUp Succesull";
+            echo "SignUp Succesull"; 
         }
     }
     if ($form == 'login') {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // set the resulting array to associative
         if ($rows == 1) {
             $row = mysqli_fetch_array($result);
-            $_SESSION['userlogin'] = true;
+            $_SESSION['userlogin'] = true; 
             $_SESSION['farmerId'] = $row['id'];
             $_SESSION['farmerName'] = $row['name'];
             $_SESSION['farmerMno'] = $row['mobile'];
@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         $_SESSION['userlogin'] = false;
     }
+
+    
     if(isset($_SESSION['userlogin'])){
         if ($_SESSION['userlogin'] == true) {
             echo "login success";

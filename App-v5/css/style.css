@@ -1,0 +1,115 @@
+@import url("google-api-fonts.css");
+/* Root Variables */
+:root {
+  --color-primary: #ffbb55;
+  /* --color-primary: #56f80b; */
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 0.7rem;
+  --padding: 1rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  font-family: "Baloo 2", cursive;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: 0.88rem;
+  background: var(--color-background);
+  overflow-x: hidden;
+  user-select: none;
+  color: var(--color-dark);
+}
+main{
+  margin-top: 1rem;
+}
+
+a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 0.87rem;
+}
+h4 {
+  font-size: 0.8rem;
+}
+h5 {
+  font-size: 0.77rem;
+}
+h6 {
+  font-size: 00.77rem;
+}
+small {
+  font-size: 0.75rem;
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+b {
+  color: var(--color-dark);
+}
+
+.primary {
+  color: var(--color-primary);
+}
+.danger {
+  color: var(--color-danger);
+}
+.success {
+  color: var(--color-success);
+}
+.warning {
+  color: var(--color-warning);
+}
+
+.container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}

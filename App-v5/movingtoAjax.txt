@@ -1,0 +1,6 @@
+this virsion uses PHP redirection to perform Insert, Update and Delete Operation 
+
+moving to Next Virsion that includes AJAX 
+
+Using AJAX we can perform Insert, Update and Delete Operation without Reloading our Webpage 
+it make website more reliable and Fast 

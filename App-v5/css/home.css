@@ -1,0 +1,361 @@
+/* Main */
+main {
+  margin-top: 1.4rem;
+}
+
+main .cards > div {
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+main .cards > div:hover {
+  box-shadow: none;
+}
+
+main .cards > div span {
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+main .cards .card > div.middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.middle > span {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+main .cards h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1rem;
+}
+
+main .cards .progress {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+
+main .cards svg {
+  width: 7rem;
+  height: 7rem;
+}
+
+main .cards .progress > svg circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+
+main .cards .card svg circle {
+  stroke-dasharray: 150;
+}
+main .cards .progress .number {
+  position: absolute;
+  top: 0%;
+  left: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .cards small {
+  display: block;
+  margin-top: 1.6rem;
+}
+
+/* =========== Select Crop Section =========== */
+.select-crop-section {
+  display: none;
+}
+.crop-add {
+  margin-top: 5rem;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background-color: var(--color-white);
+}
+.back-btn {
+  position: relative;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.crop-gallary {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  gap: 0.3rem;
+  padding: 1rem;
+}
+
+.crop-item {
+  color: var(--color-primary);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.crop-item > img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+}
+.crop-item > h2 {
+  font-size: large !important;
+}
+/* sowing Date Section */
+.date-of-sowing {
+  display: none;
+}
+.crop-add-body {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.date-of-sowing > div > input[type="date"] {
+  width: 50vw;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.crop-add-btn {
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  padding: 0.5rem;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn:hover {
+  border-radius: 2rem;
+  color: var(--color-white);
+  background-color: var(--color-success);
+  transition: all 300ms ease;
+}
+
+.note-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: 0 auto;
+  background-color: #fdf8e1;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  margin-top: 16rem;
+}
+.note-body {
+  padding: 0.5rem;
+}
+
+.note-icon {
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--color-primary);
+}
+/* Select area section */
+.add-farm-area {
+  display: none;
+}
+.crop-add-body > div > input {
+  border: 1px solid;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 0.8rem;
+  width: 100px;
+}
+.crop-add-body > div > select {
+  padding: 0.5rem;
+  border: 1px solid;
+  font-size: 1rem;
+  background-color: transparent;
+  color: black;
+  width: 100px;
+}
+
+/* farm-details Section */
+.farm-details {
+  width: 100vw;
+  background-color: var(--color-white);
+}
+
+.farm-details nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  border-bottom: 2px black;
+}
+
+.farm-nav-right {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+}
+
+.farm-nav-right > img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.farm-nav-left {
+  font-size: 3rem;
+  padding: 1rem;
+  justify-content: end;
+}
+
+.farm-btn-tab {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.tab-btn {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.farm-body {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: var(--color-background);
+}
+
+.farm-card {
+  width: 95vw;
+  border-radius: 1rem;
+  box-shadow: 0px 1px 5px var(--box-shadow);
+  padding: 0.5rem;
+  background-color: var(--color-white);
+  color: black;
+  margin: 0 auto;
+}
+
+.farm-card > progress {
+  width: 100%;
+  padding: 1rem;
+}
+
+.farm-card-top {
+  display: flex;
+  align-items: center;
+}
+
+.farm-card-top > img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+
+.farm-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.farm-profit-card {
+  width: 90vw;
+  margin: 0 auto;
+  border: 2px solid green;
+  background-color: var(--color-white);
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.farm-faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--color-light);
+  margin-top: 0.5rem;
+  width: 96vw;
+  border-radius: 1rem;
+  margin: 0 auto;
+}
+
+.faq-question-card {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid var(--color-white);
+  width: 98vw;
+  margin: 5px auto;
+  padding: 0.4rem;
+  overflow: hidden;
+}
+
+.faq-body h2{
+  font-size: 1.2rem;
+}

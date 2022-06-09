@@ -20,12 +20,14 @@ if (isset($_POST['upload'])) {
             if (move_uploaded_file($tempname, $folder)) {
                 // Execute query
                 $result = mysqli_query($con, $sql);
-                echo "Farmer id: " . $_SESSION['farmerId'];
-                echo "<br>Post text: " . $post_content;
-                echo "<br>File name: " . $filename ."<br>";
-                echo var_dump($result);
+                // echo "Farmer id: " . $_SESSION['farmerId'];
+                // echo "<br>Post text: " . $post_content;
+                // echo "<br>File name: " . $filename ."<br>";
+                // echo var_dump($result);
                 if ($result) {
                     $msg = 'Success! Post published succesfully...';
+                    // selecting post id for inseerting likes 
+                    header("Location: index.php");
                 } else {
                     $msg = 'Warning! </strong> Publishing Failed';
                 }
