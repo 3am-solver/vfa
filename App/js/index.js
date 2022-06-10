@@ -18,19 +18,19 @@ $(document).ready(function () {
   // setting Active class on sidebar
   current_link = window.location.href;
   // console.log(current_link);
-  if (current_link === "http://localhost/vfa/app/home/") {
+  if (current_link === "http://localhost/vfa/App/home/") {
     $("#home").addClass("active");
   }
-  if (current_link === "http://localhost/vfa/app/weather/") {
+  if (current_link === "http://localhost/vfa/App/weather/") {
     $("#weather").addClass("active");
   }
-  if (current_link == "http://localhost/vfa/app/account/") {
+  if (current_link == "http://localhost/vfa/App/account/") {
     $("#account").addClass("active");
   }
-  if (current_link == "http://localhost/vfa/app/community/") {
+  if (current_link == "http://localhost/vfa/App/community/") {
     $("#community").addClass("active");
   }
-  if (current_link == "http://localhost/vfa/app/blog/") {
+  if (current_link == "http://localhost/vfa/App/blog/") {
     $("#blog").addClass("active");
   }
 

@@ -1,382 +1,658 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compa/tible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Farm Assistant</title>
-    <link rel="stylesheet" href="./css/root.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="./js/3.1.1.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <style>
+    .header {
+      box-shadow: var(--box-shadow);
+      z-index: 9999999;
+      background-color: white;
+    }
+
+    .blog {
+      box-shadow: var(--box-shadow);
+    }
+
+    .active {
+      padding: 1rem;
+      border-bottom: 2px solid rgb(99 102 241);
+    }
+
+    nav>a:hover{
+      border-bottom: 2px solid rgb(99 102 241);
+    }
+  </style>
+  <script src="./js/jquery.min.js"></script>
 </head>
 
 <body>
-    <section class="home">
-        <!-- Top Social Menu -->
-        <span class="top-social-menu">
-            <ul>
-                <li style="text-decoration: underline; color: #fff;">We know Agriculture</li>
-                <li><strong><a href="#" style="text-decoration: none;">(+91) 6353485415</a></strong></li>
-            </ul>
+  <!-- Navigation Menu -->
+  <header class="text-gray-600 body-font header sticky top-0">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg class="w-10 h-10 text-white rounded-full" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" width="512" zoomAndPan="magnify" viewBox="0 0 384 383.999986"
+          height="512" preserveAspectRatio="xMidYMid meet" version="1.0">
+          <defs>
+            <clipPath id="id1">
+              <path d="M 154 1.441406 L 373 1.441406 L 373 309 L 154 309 Z M 154 1.441406 " clip-rule="nonzero" />
+            </clipPath>
+            <clipPath id="id2">
+              <path d="M 6 234 L 315 234 L 315 382.441406 L 6 382.441406 Z M 6 234 " clip-rule="nonzero" />
+            </clipPath>
+          </defs>
+          <g clip-path="url(#id1)">
+            <path fill="#27963c"
+              d="M 231.160156 56.789062 C 288.089844 23.652344 328.683594 39.960938 372.015625 1.519531 C 372.015625 1.519531 383.992188 193.9375 246.816406 236.894531 C 215.109375 246.828125 191.042969 272.878906 184.476562 305.445312 C 184.289062 306.375 184.105469 307.320312 183.929688 308.277344 C 183.929688 308.277344 161.914062 231.324219 270.386719 116.835938 C 184.996094 175.378906 158.023438 255.457031 158.023438 255.457031 C 158.023438 255.457031 130.476562 115.386719 231.160156 56.789062 "
+              fill-opacity="1" fill-rule="nonzero" />
+          </g>
+          <path fill="#40b93c"
+            d="M 222.925781 90.382812 C 185.898438 116.242188 168.738281 152.539062 161.683594 187.5625 C 167.585938 145.515625 186.007812 96.578125 235.820312 67.585938 C 284.324219 39.355469 320.96875 47.007812 357.550781 26.121094 C 317.917969 64.382812 276.269531 53.121094 222.925781 90.382812 "
+            fill-opacity="1" fill-rule="nonzero" />
+          <path fill="#80cc28"
+            d="M 95.292969 141.273438 C 59.515625 118.472656 32.96875 127.917969 6.082031 102.054688 C 6.082031 102.054688 0 171.890625 32.988281 220.640625 C 58.625 258.523438 97.242188 248.988281 118.539062 263.738281 C 118.539062 263.738281 96.636719 212.429688 68.492188 178.898438 C 121.925781 218.785156 137.207031 271.015625 137.207031 271.015625 C 137.207031 271.015625 158.566406 181.589844 95.292969 141.273438 "
+            fill-opacity="1" fill-rule="nonzero" />
+          <path fill="#adda1a"
+            d="M 98.671875 162.6875 C 120.109375 178.382812 129.726562 199.949219 133.421875 220.636719 C 130.5 195.835938 120.304688 166.8125 91.386719 149.113281 C 63.230469 131.878906 41.582031 135.902344 20.339844 123.136719 C 43.148438 146.15625 67.789062 140.078125 98.671875 162.6875 "
+            fill-opacity="1" fill-rule="nonzero" />
+          <g clip-path="url(#id2)">
+            <path fill="#228944"
+              d="M 303.5 234.1875 C 298.089844 234.1875 293.554688 238.234375 292.910156 243.605469 C 284.976562 309.75 228.65625 361.023438 160.351562 361.023438 C 92.046875 361.023438 35.722656 309.75 27.789062 243.605469 C 27.144531 238.234375 22.609375 234.1875 17.199219 234.1875 C 10.820312 234.1875 5.84375 239.757812 6.597656 246.089844 C 15.765625 322.847656 81.101562 382.359375 160.351562 382.359375 C 239.597656 382.359375 304.933594 322.847656 314.101562 246.089844 C 314.859375 239.757812 309.878906 234.1875 303.5 234.1875 "
+              fill-opacity="1" fill-rule="nonzero" />
+          </g>
+        </svg>
+        <span class="ml-3 text-xl">VFA</span>
+      </a>
+      <nav class="navb md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        <a href="#home" class="active mr-5 hover:text-gray-900">Home</a>
+        <a href="#features" class="mr-5 hover:text-gray-900">Feature</a>
+        <a href="#blogs" class="mr-5 hover:text-gray-900">Blog</a>
+        <a href="#testimoni" class="mr-5 hover:text-gray-900">Testimonial</a>
+        <a href="#about" class="mr-5 hover:text-gray-900">About</a>
+        <a href="#contact" class="mr-5 hover:text-gray-900">Contact</a>
+      </nav>
+      <script>
+        $('nav a').click(function () {
+          $('a').removeClass("active");
+          $(this).addClass("active");
+        });
+      </script>
+      <form method="post" onsubmit="return false;" id="login-form">
+        <input type="text" id="f-username" name="f-username" placeholder="Username"
+          class="bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          data-temp-mail-org="0">
+        <input type="password" id="f-password" name="f-password" placeholder="Password"
+          class="bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          data-temp-mail-org="0">
+        <button onclick="login();"
+          class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login
+        </button>
+      </form>
+    </div>
+  </header>
+  <!-- Navigation Menu Ends Here -->
+
+  <!-- Hero Section -->
+  <section id="home" class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div
+        class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Virtual Farming Assistant
+          <br class="hidden lg:inline-block">AI Farming Technology
+        </h1>
+        <p class="mb-8 leading-relaxed">
+          VFA is a farming technology platform where we work with farmers directly. We at VFA follow our mission of
+          bridging the gap between technology and agriculture in India with a vision to reach out to maximum Indian
+          farmers.
+        </p>
+        <div class="flex justify-center">
+          <button
+            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+          <button
+            class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Register</button>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="./img/Humaaans - 2 Characters.png">
+      </div>
+    </div>
+  </section>
+  <!-- Hero section Ends Here -->
+
+  <!-- Features Section -->
+  <section id="features" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Feature</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+          asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep
+          jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+      </div>
+      <div class="container mx-auto">
+        <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-5 border-gray-200 sm:flex-row flex-col">
+          <div
+            class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full   text-indigo-500 flex-shrink-0">
+            <img class="sm:w-16 sm:h-16 w-10 h-10" src="./img/icons8-potted-plant.gif" alt="plant icon">
+          </div>
+          <div class="flex-grow sm:text-left text-center mt-4 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Advisory for 350+ crops</h2>
+            <p class="leading-relaxed text-base">Farm security from sowing till harvesting. Efficient crop management
+              advisory platform with real-time crop protection updates.</p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center lg:w-4/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+          <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Weather-based Advisory</h2>
+            <p class="leading-relaxed text-base">Protect your farm with this special feature available only in
+              VFA app. Get actionable agronomy insights based on changing weather. Add your crop to get
+              crop-specific information.</p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full text-indigo-500 flex-shrink-0">
+            <img class="sm:w-16 sm:h-16 w-10 h-10" src="./img/icons8-summer.gif" alt="plant icon">
+          </div>
+        </div>
+
+        <div class="flex items-center lg:w-4/5 mx-auto sm:flex-row flex-col">
+          <div
+            class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full   text-indigo-500 flex-shrink-0">
+            <img class="sm:w-16 sm:h-16 w-10 h-10" src="./img/icons8-calendar.gif" alt="plant icon">
+          </div>
+          <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Personalized Crop Calendar</h2>
+            <p class="leading-relaxed text-base">We are there for you whenever you need. Share your farm-related issues
+              wth Agri experts and get immediate assistance.</p>
+            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+  </section>
+  <!-- Features Section Ends Here -->
+
+  <!-- Steps to start Section -->
+  <section id="start" class="text-gray-600 body-font">
+    <div class="container mx-auto">
+      <div class="container mx-auto flex flex-wrap">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">How does it work?</h1>
+        <div class="flex flex-wrap w-full">
+          <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 w-10 h-10 rounded-full bg-white inline-flex items-center justify-center text-white relative z-10">
+                <img src="./img/icons8-potted-plant.gif" alt="plotted plant icon" class="w-10 h-10">
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1</h2>
+                <h3 class="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">Add your Farm</h3>
+                <p class="leading-relaxed">Open the app and Add the crop at your farm to VFA App. Provide the
+                  sowing date and the cultivation area.</p>
+              </div>
+            </div>
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 w-10 h-10 rounded-full bg-white inline-flex items-center justify-center text-white relative z-10">
+                <img src="./img/icons8-summer.gif" alt="plotted plant icon" class="w-10 h-10">
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 2</h2>
+                <h3 class="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">Visit Weather Section</h3>
+                <p class="leading-ralaxed">You get actionable insights based on the prevailing weather condition at your
+                  farm. Visit the weather section regularly to stay updated.</p>
+              </div>
+            </div>
+            <div class="flex relative">
+              <div
+                class="flex-shrink-0 w-10 h-10 rounded-full bg-white inline-flex items-center justify-center text-white relative z-10">
+                <img src="./img/icons8-notification.gif" alt="plotted plant icon" class="w-10 h-10">
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">FINISH</h2>
+                <h3 class="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">Get Notified</h3>
+                <p class="leading-relaxed">
+                  You receive timely notification on the preventive steps to be taken at the farm based on the
+                  weathecondition.
+                </p>
+              </div>
+            </div>
+          </div>
+          <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="./img/c3.jpg"
+            alt="step">
+        </div>
+      </div>
+  </section>
+  <!-- Steps to start Section Ends Here -->
+
+  <!-- Testimonial Section  -->
+  <section id="testimoni" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="container mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Testimonials</h1>
+        </div>
+        <div class="flex flex-wrap -m-3">
+          <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div class="blog h-full text-center">
+              <img alt="testimonial"
+                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                src="./img/farmer1.png">
+              <p class="leading-relaxed">I had taken VFA's guidance for watermelon and planted it as per the
+                schedule. I have received 60 tons of goods per acre. The quality of the fruit is good.</p>
+              <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Bhaskar Shelar</h2>
+            </div>
+          </div>
+          <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div class="blog h-full text-center">
+              <img alt="testimonial"
+                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                src="./img/farmer2.png">
+              <p class="leading-relaxed">The use of VFA has improved the quality of my crop. I can see and
+                experience this change with my own eyes. My crops get good value in the market.</p>
+              <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Subhash Bhosale</h2>
+            </div>
+          </div>
+          <div class="lg:w-1/3 lg:mb-0 p-4">
+            <div class="blog h-full text-center">
+              <img alt="testimonial"
+                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                src="./img/farmer3.png">
+              <p class="leading-relaxed">I have loved VFA's guidance from the very beginning.
+                I have used VFA for many crops and every time I have got good results.</p>
+              <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Sunanda Bhonsle</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- Testimonial Section Ends Here -->
+
+  <!-- Static -->
+  <section class="text-gray-600 body-font mt-10 w-5/6 m-auto">
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 md:w-1/3 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <img class="text-indigo-500 w-12 h-12 mb-3 inline-block"
+            src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/undefined/external-farmer-professions-men-diversity-flaticons-flat-flat-icons-2.png" />
+          <h2 class="title-font font-medium text-3xl text-gray-900">1.3K</h2>
+          <p class="leading-relaxed">Farmers</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <img src="./img/icons8-plant.gif" alt="plant icon" class="text-indigo-500 w-12 h-12 mb-3 inline-block">
+          <h2 class="title-font font-medium text-3xl text-gray-900">74</h2>
+          <p class="leading-relaxed">Crops</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <img class="text-indigo-500 w-12 h-12 mb-3 inline-block" src="./img/icons8-location.gif" alt="location icon">
+          <h2 class="title-font font-medium text-3xl text-gray-900">46</h2>
+          <p class="leading-relaxed">Places</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- Static Ends Here -->
+
+  <!-- Blogs Section -->
+  <section id="blogs" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="container mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Blogs</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+            asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun
+            deep
+            jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+        </div>
+        <div class="flex flex-wrap -m-4">
+          <div class="p-4 md:w-1/3">
+            <div class="blog h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="./img/c3.jpg" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The Catalyzer</h1>
+                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+                  microdosing tousled waistcoat.</p>
+                <div class="flex items-center flex-wrap ">
+                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                  <span
+                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>1.2K
+                  </span>
+                  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path
+                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                      </path>
+                    </svg>6
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3">
+            <div class="blog h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="./img/c4.jpg" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The 400 Blows</h1>
+                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+                  microdosing tousled waistcoat.</p>
+                <div class="flex items-center flex-wrap">
+                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                  <span
+                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>1.2K
+                  </span>
+                  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path
+                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                      </path>
+                    </svg>6
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3">
+            <div class="blog h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="./img/c5.jpg" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
+                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+                  microdosing tousled waistcoat.</p>
+                <div class="flex items-center flex-wrap ">
+                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                  <span
+                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>1.2K
+                  </span>
+                  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path
+                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                      </path>
+                    </svg>6
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- Blog Section Ends Here -->
+
+  <!-- About Us Section -->
+  <section id="about" class="blog text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-col">
+      <div class="lg:w-4/6 mx-auto">
+        <div class="rounded-lg h-64 overflow-hidden">
+          <img alt="content" class="object-cover object-center h-full w-full" src="./img/c.jpg">
+        </div>
+        <div class="flex flex-col sm:flex-row mt-10">
+          <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+            <div class="w-20 h-auto rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+              <img class="rounded-full" src="./img/farmer1.png" alt="VFA About Picture">
+            </div>
+            <div class="flex flex-col items-center text-center justify-center">
+              <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Kanajariya Brothers</h2>
+              <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+              <p class="text-base"> Empower every farmer & Digitize every farm.</p>
+            </div>
+          </div>
+          <div
+            class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <p class="leading-relaxed text-lg mb-4">VFA is a farming technology platform where we work with farmers
+              directly. We at VFA follow our mission of bridging the gap between technology and agriculture in India
+              with a vision to reach out to maximum Indian farmers.
+
+              We support farmers to “Grow Efficient, Grow More” through the systematic implementation of scientific
+              techniques by providing critical information at appropriate times and regular monitoring. At VFA, we
+              understand each farmer’s requirements, we believe every farmer deserves a chance - the chance for a
+              successful future with technology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section Ends Here -->
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="blog text-gray-600 body-font relative">
+    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+      <div
+        class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
+          marginwidth="0" scrolling="no"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58996.56492402637!2d70.057984!3d22.455910399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1654890866777!5m2!1sen!2sin"
+          style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+        <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+          <div class="lg:w-1/2 px-6">
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+            <p class="mt-1">Shah Bhagvandji Kachrabhai Edu. Complex,
+              Ahead of Oshwal Cirlce,
+              Indira Gandhi Marg,
+              Jamnagar - 361004.</p>
+          </div>
+          <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+            <a class="text-indigo-500 leading-relaxed">contact@vfa.com</a>
+            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+            <p class="leading-relaxed">+91 89899 99899</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+        <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Contact</h2>
+        <p class="leading-relaxed mb-5 text-gray-600">If you have any question's in your mind, Feel free to ask any
+          thing</p>
+        <div class="relative mb-4">
+          <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+          <input type="text" id="name" name="name"
+            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+          <input type="email" id="email" name="email"
+            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            data-temp-mail-org="0">
+        </div>
+        <div class="relative mb-4">
+          <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+          <textarea id="message" name="message"
+            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+        </div>
+        <button
+          class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Us Section Ends Here -->
+
+  <!-- Footer Section -->
+  <footer class="text-gray-600 body-font">
+
+    <div class="bg-gray-100">
+      <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg class="w-10 h-10 text-white rounded-full" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" zoomAndPan="magnify" viewBox="0 0 384 383.999986"
+            height="512" preserveAspectRatio="xMidYMid meet" version="1.0">
+            <defs>
+              <clipPath id="id1">
+                <path d="M 154 1.441406 L 373 1.441406 L 373 309 L 154 309 Z M 154 1.441406 " clip-rule="nonzero" />
+              </clipPath>
+              <clipPath id="id2">
+                <path d="M 6 234 L 315 234 L 315 382.441406 L 6 382.441406 Z M 6 234 " clip-rule="nonzero" />
+              </clipPath>
+            </defs>
+            <g clip-path="url(#id1)">
+              <path fill="#27963c"
+                d="M 231.160156 56.789062 C 288.089844 23.652344 328.683594 39.960938 372.015625 1.519531 C 372.015625 1.519531 383.992188 193.9375 246.816406 236.894531 C 215.109375 246.828125 191.042969 272.878906 184.476562 305.445312 C 184.289062 306.375 184.105469 307.320312 183.929688 308.277344 C 183.929688 308.277344 161.914062 231.324219 270.386719 116.835938 C 184.996094 175.378906 158.023438 255.457031 158.023438 255.457031 C 158.023438 255.457031 130.476562 115.386719 231.160156 56.789062 "
+                fill-opacity="1" fill-rule="nonzero" />
+            </g>
+            <path fill="#40b93c"
+              d="M 222.925781 90.382812 C 185.898438 116.242188 168.738281 152.539062 161.683594 187.5625 C 167.585938 145.515625 186.007812 96.578125 235.820312 67.585938 C 284.324219 39.355469 320.96875 47.007812 357.550781 26.121094 C 317.917969 64.382812 276.269531 53.121094 222.925781 90.382812 "
+              fill-opacity="1" fill-rule="nonzero" />
+            <path fill="#80cc28"
+              d="M 95.292969 141.273438 C 59.515625 118.472656 32.96875 127.917969 6.082031 102.054688 C 6.082031 102.054688 0 171.890625 32.988281 220.640625 C 58.625 258.523438 97.242188 248.988281 118.539062 263.738281 C 118.539062 263.738281 96.636719 212.429688 68.492188 178.898438 C 121.925781 218.785156 137.207031 271.015625 137.207031 271.015625 C 137.207031 271.015625 158.566406 181.589844 95.292969 141.273438 "
+              fill-opacity="1" fill-rule="nonzero" />
+            <path fill="#adda1a"
+              d="M 98.671875 162.6875 C 120.109375 178.382812 129.726562 199.949219 133.421875 220.636719 C 130.5 195.835938 120.304688 166.8125 91.386719 149.113281 C 63.230469 131.878906 41.582031 135.902344 20.339844 123.136719 C 43.148438 146.15625 67.789062 140.078125 98.671875 162.6875 "
+              fill-opacity="1" fill-rule="nonzero" />
+            <g clip-path="url(#id2)">
+              <path fill="#228944"
+                d="M 303.5 234.1875 C 298.089844 234.1875 293.554688 238.234375 292.910156 243.605469 C 284.976562 309.75 228.65625 361.023438 160.351562 361.023438 C 92.046875 361.023438 35.722656 309.75 27.789062 243.605469 C 27.144531 238.234375 22.609375 234.1875 17.199219 234.1875 C 10.820312 234.1875 5.84375 239.757812 6.597656 246.089844 C 15.765625 322.847656 81.101562 382.359375 160.351562 382.359375 C 239.597656 382.359375 304.933594 322.847656 314.101562 246.089844 C 314.859375 239.757812 309.878906 234.1875 303.5 234.1875 "
+                fill-opacity="1" fill-rule="nonzero" />
+            </g>
+          </svg>
+          <span class="ml-3 text-xl">VFA</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2020 VFA —
+          <a href="https://twitter.com/HardikKanajariya" rel="noopener noreferrer" class="text-gray-600 ml-1"
+            target="_blank">@Hardik Kanajariya</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+              </path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none"
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
         </span>
-        <!-- Navigation menu -->
-        <nav>
-            <ul>
-                <li>
-                    <img src="./App/img//logo.png" alt="VFA_logo">
-                </li>
-                <li>
-                    <h1 style="font-size: 33px !important;color: orange;">VIRTUAL FARMING ASSISTANT</h1>
-                </li>
-                <li>
-                    <a href="./App/auth">LogIn</a>
-                </li>
-            </ul>
-        </nav>
-        <div style="text-align: center;" class="mobile-respo">
-            <h1 style="font-size: 2rem;">Welcome to <div style="color: rgb(34, 226, 34); font-size: 2rem;">VFA</div>
-            </h1>
-            <h3>Get your Free</h3>
-            <h2 style="color: orange; text-align: center;">Vitual Farming Assistant</h2>
-            <a href="./App/auth"
-                style="color: #fff; background-color: green; padding: 10px; margin: 5px; text-decoration: none; border-radius: 13px;">Register
-                Now</a>
-            <p style="text-align: center;">Allready registered <br> <a href="./App/auth"
-                    style="color: rgba(255, 166, 0, 0.692);">Click here </a></p>
-        </div>
-    </section>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Section Ends Here -->
 
-    <!-- About Us Section -->
-    <section class="about-us">
-        <div class="about-info">
-            <h1>Welcome</h1>
-            <h3>Bringing growth to agriculture.</h3>
-            <p>Agriculture is our wisest pursuit, because it will in the end contribute most to real wealth, good morals
-                & happiness." "The farmer has to be an optimist or he wouldn't still be a farmer." "A good farmer is
-                nothing more nor less than a handy man with a sense of humus.
-            </p>
-            <a href="#">Learn More</a>
-        </div>
-        <div class="img-slider">
-            <div class="position-relative">
-                Real Results, Virtual Farm
-            </div>
-            <img src="./App/img//old-tractor.jpg" alt="VFA Abouts picture" width="100%" height="100%">
-        </div>
-    </section>
+  <!-- Login Script -->
+  <script>
+    function login() {
+      $.post({
+        url: 'login.php',
+        data: $("#login-form").serialize(),
+        success: function (response) {
+          // console.log(response); // Debugging 
+          sessionStorage.setItem("userLoggedin", response.status);
+          sessionStorage.setItem("farmerId", response.data[0]["id"]);
+          sessionStorage.setItem("farmerName", response.data[0]["name"]);
+          sessionStorage.setItem("farmerMno", response.data[0]["mobile"]);
+          sessionStorage.setItem("farmerUsername", response.data[0]["username"]);
+          sessionStorage.setItem("farmerEmail", response.data[0]["email"]);
+          sessionStorage.setItem("farmerState", response.data[0]["state"]);
+          sessionStorage.setItem("farmerDistrict", response.data[0]["district"]);
+          sessionStorage.setItem("farmerTaluko", response.data[0]["taluka"]);
+          sessionStorage.setItem("farmerVillage", response.data[0]["village"]);
+          sessionStorage.setItem("farmerPincode", response.data[0]["pincode"]);
 
-    <!-- Services Section -->
-    <section class="service">
-        <h2>What we Do &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-        <h1>Our Services &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-        <div class="sv-container">
-            <!-- first column -->
-            <div class="row">
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                construction    
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                format_paint
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                build
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                agriculture
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                local_shipping
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="service-card">
-                        <div class="icon-wrapper">
-                            <span class="material-icons-sharp">
-                                tire_repair
-                                </span>
-                        </div>
-                        <h3>Service Heading</h3>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                            consequatur necessitatibus eaque.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          if (response.status == true) {
+            window.location.href = "./App/home";
+          }
 
-    <!-- our Expertise -->
-    <section class="expert">
-        <img src="./App/img//SVG-LOGO.svg" alt="Logo">
-        <h1>We have expertise in these areas</h1>
-        <div class="card-section">
-            <div class="card">
-                <img src="./App/img//side-image01.jpg" alt="Farming Image 1">
-                <div class="card-info">
-                    <h2>Sustainability and Climate Change</h2>
-                    <p>Our agricultural background means we’re equally at home meeting face-to-face with farmers as we
-                        are engaging.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-info">
-                    <h2>Advice and farm implement</h2>
-                    <p>Largest independent provider of agricultural and environmental consultancy, rural development
-                        services and policy advice.</p>
-                    <a href="#">Learn More</a>
-                </div>
-                <img src="./App/img//side-image02.jpg" alt="Farming Image 2">
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog post -->
-    <section class="blog-section expert">
-        <h1>Commitment to the Environment</h1>
-        <div class="blog-card-section card-section">
-            <div class="blog-card">
-                <img src="./App/img//carousel-image01.jpg" alt="Farming Image 1">
-                <div class="blog-card-info card-info">
-                    <h2>Dynamic Guidance Dunescapes</h2>
-                    <p>Our agricultural background means we’re equally at home meeting face-to-face with farmers as we
-                        are engaging.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="./App/img//carousel-image02.jpg" alt="Farming Image 2">
-                <div class="blog-card-info card-info">
-                    <h2>Tips for Ripening your Fruit</h2>
-                    <p>Largest independent provider of agricultural and environmental consultancy, rural development
-                        services and policy advice.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="./App/img//carousel-image03.jpg" alt="Farming Image 1">
-                <div class="blog-card-info card-info">
-                    <h2>Superfoods you should be eating</h2>
-                    <p>Our agricultural background means we’re equally at home meeting face-to-face with farmers as we
-                        are engaging.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="./App/img//carousel-image04.jpg" alt="Farming Image 2">
-                <div class="blog-card-info card-info">
-                    <h2>Advice and farm implement</h2>
-                    <p>Largest independent provider of agricultural and environmental consultancy, rural development
-                        services and policy advice.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section class="blog-section expert">
-        <h1>Agricultural communities News</h1>
-        <div class="news-card-section card-section">
-            <div class="news-card">
-                <img src="./App/img//news01.jpg" alt="Farming Image 1">
-                <div class="news-card-info card-info">
-                    <h2>Dynamic Guidance Dunescapes</h2>
-                    <p>Our agricultural background means we’re equally at home meeting face-to-face with farmers as we
-                        are engaging.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="news-card">
-                <img src="./App/img//news02.jpg" alt="Farming Image 2">
-                <div class="news-card-info card-info">
-                    <h2>Tips for Ripening your Fruit</h2>
-                    <p>Largest independent provider of agricultural and environmental consultancy, rural development
-                        services and policy advice.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="news-card">
-                <img src="./App/img//news03.jpg" alt="Farming Image 2">
-                <div class="news-card-info card-info">
-                    <h2>Advice and farm implement</h2>
-                    <p>Largest independent provider of agricultural and environmental consultancy, rural development
-                        services and policy advice.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form -->
-    <section class="expert user-exp-share-form">
-        <h1>Help us by sharing your Farming Experience <span style="color: white;">:)</span></h1>
-        <center>
-            <form action="#" method="post" class="u-share-form">
-                <label for="fName">Enter your Name: </label>
-                <input type="text" id="fName" name="fName" placeholder="Hardik Kanajariya">
-                <label for="mno">Enter your Mobile No: </label>
-                <input type="tel" id="mno" name="mno" placeholder="+916353485415">
-                <label for="location">Select your District: </label>
-                <select name="location" id="location">
-                    <option value="Ahmedabad">Ahmedabad</option>
-                    <option value="Amreli">Amreli</option>
-                    <option value="Anand">Anand</option>
-                    <option value="Aravalli">Aravalli</option>
-                    <option value="Banaskantha">Banaskantha</option>
-                    <option value="Bharuch">Bharuch</option>
-                    <option value="Bhavnagar">Bhavnagar</option>
-                    <option value="Botad">Botad</option>
-                    <option value="Chhota Udaipur">Chhota Udaipur</option>
-                    <option value="Dahod">Dahod</option>
-                    <option value="Dang">Dang</option>
-                    <option value="Devbhoomi Dwarka">Devbhoomi Dwarka</option>
-                    <option value="Gandhinagar">Gandhinagar</option>
-                    <option value="Gir Somnath">Gir Somnath</option>
-                    <option value="Jamnagar">Jamnagar</option>
-                    <option value="Junagadh">Junagadh</option>
-                    <option value="Kutch">Kutch</option>
-                    <option value="Kheda">Kheda</option>
-                    <option value="Mahisagar">Mahisagar</option>
-                    <option value="Mehsana">Mehsana</option>
-                    <option value="Morbi">Morbi</option>
-                    <option value="Narmada">Narmada</option>
-                    <option value="Navsari">Navsari</option>
-                    <option value="Panchmahal">Panchmahal</option>
-                    <option value="Patan">Patan</option>
-                    <option value="Porbandar">Porbandar</option>
-                    <option value="Rajkot">Rajkot</option>
-                    <option value="Sabarkantha">Sabarkantha</option>
-                    <option value="Surat">Surat</option>
-                    <option value="Surendranagar">Surendranagar</option>
-                    <option value="Tapi">Tapi</option>
-                    <option value="Vadodara">Vadodara</option>
-                    <option value="Valsad">Valsad</option>
-                </select>
-                <br>
-                <button type="submit">Submit</button>
-            </form>
-        </center>
-    </section>
-
-    <!-- Footer Section -->
-    <section class="footer" style="margin: 0 !important;">
-        <footer>
-            <div class="footer-card">
-                <div class="footer-card-section">
-                    <img src="./App/img//SVG-LOGO.svg" alt="Footer Logo">
-                </div>
-                <div class="footer-card-section">
-                    <h2>Features</h2>
-                    <ul>
-                        <li>Manage your Farm at Single Click</li>
-                        <li>Get Personal Virtual Manager</li>
-                        <li>Make More Profit</li>
-                        <li>Easy Crop Grooming</li>
-                        <li>Track you Crop Progress</li>
-                        <li>Get Health update of you Crop</li>
-                    </ul>
-                </div>
-                <div class="footer-card-section">
-                    <!-- <h2>What we Do</h2>
-                    <ul>
-                        <li>Assist you to do Farming</li>
-                        <li>Learn how to do Farming </li>
-                        <li>Learn how to make more profit with your Assests </li>
-                        <li>Regular updates of your Crop</li>
-                        <li>Wheather Reports</li>
-                    </ul> -->
-                    <h2>Usefull Links: </h2>
-                    <ul>
-                        <li>About-Us</li>
-                        <li>Contact-Us</li>
-                        <li>Terms&Conditions</li>
-                        <li>Privacy-Policy</li>
-                        <li>Cookies Policy</li>
-                    </ul>
-                </div>
-                <div class="footer-card-section">
-                    <h2>Contact Us</h2>
-                    <div>
-                        <i class="fa-solid fa-phone"></i> &nbsp;&nbsp;<span>+91 6353485415</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-envelope"></i> &nbsp;&nbsp;<span>contact@vfa.com</span>
-                    </div>
-                    <address>
-                        <span class="text-white">Shah Bhagvandji Kachrabhai Edu. Complex,<br>Ahead of Oshwal Circle,
-                            Indira Gandhi Marg, <br>Jamnagar - 361004.</span>
-                    </address>
-                </div>
-            </div>
-            <div style="border: 2px solid orange; width: 95vw; height: 1px; margin: 0 auto"></div>
-            <center>
-                <span>© 2022 VFA | <b><i>VIRTUAL FARMING ASSISTANT</i></b></span>
-                <span style="color: orange;"> &nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <span>Site created by <strong><span style="color: rgb(0, 255, 0);">KANAJARIYA
-                            BROTHERS</span></strong></span>
-            </center>
-        </footer>
-    </section>
+          // If username or password are not valid show this notification
+          if (response.status == false) {
+            alert("Invalid Username or Password");
+          }
+        },
+        error: function (data) {
+          console.error("ERROR: Login.php is not getting any Response from Server");
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

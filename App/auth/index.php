@@ -293,12 +293,12 @@ if (isset($_SESSION['userlogin'])) {
                     // If username or password are not valid show this notification
                     if (response.status == false) {
                         console.warn("Invalid Username or Password");
-                        $(".error").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong> ' + response.data + '</p>');
+                        $(".error").html('<input type="checkbox" id="alert1" /> <label class="close" for="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong> ' + response.data + '</p>');
                     }
                 },
                 error: function(data) {
                     console.error("ERROR: Login.php is not getting any Response from Server");
-                    $(".error").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>ERROR! </strong> Login.php is not getting any Response from Server </p>');
+                    $(".error").html('<input type="checkbox" id="alert1" /> <label class="close" for="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>ERROR! </strong> Login.php is not getting any Response from Server </p>');
                 }
             });
         }
@@ -318,7 +318,7 @@ if (isset($_SESSION['userlogin'])) {
             if (pass == cpass) {
                 console.log("Password Matched...");
                 if (name == "" || username == "" || mobile == "" || email == "") {
-                    $(".info").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Info!</strong>  Please Fillout All Details! </p>');
+                    $(".info").html('<input type="checkbox" id="alert1" /> <label class="close" for="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Info!</strong>  Please Fillout All Details! </p>');
                 } else {
                     // Performing Ajax Registration request 
                     console.log("Performing Ajax Request... ");
@@ -344,7 +344,7 @@ if (isset($_SESSION['userlogin'])) {
                                 // console.log("Navigating to home Page...");
                             }
                             if (response.status == false) {
-                                $(".warning").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong> ' + response.data + ' </p>');
+                                $(".warning").html('<input type="checkbox" id="alert1" /> <label class="close" for="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong> ' + response.data + ' </p>');
                             }
 
                         },
@@ -356,7 +356,7 @@ if (isset($_SESSION['userlogin'])) {
 
             } else {
                 console.log("Password Doesn't Match");
-                $(".warning").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong>  Password and Confirm Password are not Same! </p>');
+                $(".warning").html('<input type="checkbox" id="alert1" /> <label class="close" for="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Warning!</strong>  Password and Confirm Password are not Same! </p>');
             }
         }
     </script>

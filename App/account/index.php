@@ -40,17 +40,17 @@ require('../connection/conn.php');
             <!-- Profile information -->
             <div class="profile-box" id="profile-box">
                 <div class="nav">
-                    <h2 style="color: white ;">My Profile</h2>
-                    <h2 style="cursor:pointer; color:snow;" onclick="show_edit_box()">Edit Profile</h2>
+                    <h2>My Profile</h2>
+                    <h2 style="cursor:pointer;" onclick="show_edit_box()">Edit Profile</h2>
                 </div>
                 <div class="middle">
                     <img src="../img/default-user.png" alt="profile-image">
-                    <h2 style="color: white;" id="farmerName">Farmer Name</h2>
+                    <h2 id="farmerName">Farmer Name</h2>
                     <div>
                         <!-- <span class="material-icons-sharp" style="color: white;">
                             whatsapp
                         </span> -->
-                        <span style="color: white;" id="farmerMobile">+91 63534854xx</span>
+                        <span id="farmerMobile">+91 63534854xx</span>
                     </div>
                 </div>
             </div>
@@ -108,9 +108,9 @@ require('../connection/conn.php');
     </div>
     <script src="../js/index.js"></script>
     <script>
-        // Displaying Farmer Name and Mobile no on Profile Card 
-        $("#farmer-name").val(sessionStorage.getItem("farmerName"));
-        $("#farmer-mobile").val(sessionStorage.getItem("farmerMno"));
+        // Getting Farmers Name and Mobile no from Javascript Session 
+        $("#farmerName").text(sessionStorage.getItem("farmerName"));
+        $("#farmerMobile").html("+91 <b>" + sessionStorage.getItem("farmerMno") + "</b>");
 
         function show_profile() {
             document.getElementById('profile-box').style.display = 'block';
@@ -124,20 +124,60 @@ require('../connection/conn.php');
             document.getElementById('crop').style.display = 'none';
             document.getElementById('edit-profile-box').style.display = 'block';
 
-            // Getting Farmers Name and Mobile no from Javascript Session 
-            $("#farmerName").text(sessionStorage.getItem("farmerName"));
-            $("#farmerMobile").html("+91 <b style='color:white;'>" + sessionStorage.getItem("farmerMno") + "</b>");
-
             // Edit Box Input Value Place holder 
-            $("#farmer-name").attr("placeholder", sessionStorage.getItem("farmerName"));
-            $("#farmer-username").attr("placeholder", sessionStorage.getItem("farmerUsername"));
-            $("#farmer-mobile").attr("placeholder", sessionStorage.getItem("farmerMno"));
-            $("#farmer-mail").attr("placeholder", sessionStorage.getItem("farmerEmail"));
-            $("#farmer-state").attr("placeholder", sessionStorage.getItem("farmerState"));
-            $("#farmer-district").attr("placeholder", sessionStorage.getItem("farmerDistrict"));
-            $("#farmer-taluka").attr("placeholder", sessionStorage.getItem("farmerTaluko"));
-            $("#farmer-village").attr("placeholder", sessionStorage.getItem("farmerVillage"));
-            $("#farmer-code").attr("placeholder", sessionStorage.getItem("farmerPincode"));
+            if (sessionStorage.getItem("farmerName") != "") {
+                $("#farmer-name").attr("placeholder", sessionStorage.getItem("farmerName"));
+            } else {
+                $("#farmer-name").attr("placeholder", "Enter Name");
+            }
+
+            if (sessionStorage.getItem("farmerUsername") != "") {
+                $("#farmer-username").attr("placeholder", sessionStorage.getItem("farmerUsername"));
+            } else {
+                $("#farmer-username").attr("placeholder", "Enter Username");
+            }
+
+            if (sessionStorage.getItem("farmerMno") != "") {
+                $("#farmer-mobile").attr("placeholder", sessionStorage.getItem("farmerMno"));
+            } else {
+                $("#farmer-mobile").attr("placeholder", "Enter Mobileno");
+            }
+
+            if (sessionStorage.getItem("farmerEmail") != null) {
+                $("#farmer-mail").attr("placeholder", sessionStorage.getItem("farmerEmail"));
+            } else {
+                $("#farmer-mail").attr("placeholder", "Enter Email");
+            }
+
+            if (sessionStorage.getItem("farmerState") != null) {
+                $("#farmer-state").attr("placeholder", sessionStorage.getItem("farmerState"));
+            } else {
+                $("#farmer-state").attr("placeholder", "Enter State");
+            }
+
+            if (sessionStorage.getItem("farmerDistrict") != "") {
+                $("#farmer-district").attr("placeholder", sessionStorage.getItem("farmerDistrict"));
+            } else {
+                $("#farmer-district").attr("placeholder", "Enter District");
+            }
+
+            if (sessionStorage.getItem("farmerTaluko") == "") {
+                $("#farmer-taluka").attr("placeholder", sessionStorage.getItem("farmerTaluko"));
+            } else {
+                $("#farmer-taluka").attr("placeholder", "Enter Taluko");
+            }
+
+            if (sessionStorage.getItem("farmerVillage") == "") {
+                $("#farmer-village").attr("placeholder", sessionStorage.getItem("farmerVillage"));
+            } else {
+                $("#farmer-village").attr("placeholder", "Enter Village");
+            }
+
+            if (sessionStorage.getItem("farmerPincode") == "") {
+                $("#farmer-code").attr("placeholder", sessionStorage.getItem("farmerPincode"));
+            } else {
+                $("#farmer-code").attr("placeholder", "Enter pincode");
+            }
         }
 
         // Logging Out 
@@ -157,35 +197,35 @@ require('../connection/conn.php');
             $("#farmer-id").val(sessionStorage.getItem("farmerId")); // Don't modify this value 
 
             // Performing AJAX Request
-           let confirm = confirm("Are you Sure you want to Update your Profile? ");
-           if(confirm){
-            $.post({
-                url: "edit.php",
-                data: $("#edit-form").serialize(),
-                success: (Response) => {
-                    console.log(Response);
-                    if (Response.status) {
-                        show_profile();
-                        $(".success").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Success!</strong> ' + Response.msg + '</p>');
-                        console.log(Response); // Debugging 
-                        sessionStorage.setItem("userLoggedin", Response.status);
-                        sessionStorage.setItem("farmerId", Response.data[0]["id"]);
-                        sessionStorage.setItem("farmerName", Response.data[0]["name"]);
-                        sessionStorage.setItem("farmerMno", Response.data[0]["mobile"]);
-                        sessionStorage.setItem("farmerUsername", Response.data[0]["username"]);
-                        sessionStorage.setItem("farmerEmail", Response.data[0]["email"]);
-                        sessionStorage.setItem("farmerState", Response.data[0]["state"]);
-                        sessionStorage.setItem("farmerDistrict", Response.data[0]["district"]);
-                        sessionStorage.setItem("farmerTaluko", Response.data[0]["taluka"]);
-                        sessionStorage.setItem("farmerVillage", Response.data[0]["village"]);
-                        sessionStorage.setItem("farmerPincode", Response.data[0]["pincode"]);
+            let confirm = confirm("Are you Sure you want to Update your Profile? ");
+            if (confirm) {
+                $.post({
+                    url: "edit.php",
+                    data: $("#edit-form").serialize(),
+                    success: (Response) => {
+                        console.log(Response);
+                        if (Response.status) {
+                            show_profile();
+                            $(".success").html('<input type="checkbox" id="alert1" /> <label class="close" ="close" ="alert1"> <i class="icon-remove"></i> </label> <p class="inner"> <strong>Success!</strong> ' + Response.msg + '</p>');
+                            console.log(Response); // Debugging 
+                            sessionStorage.setItem("userLoggedin", Response.status);
+                            sessionStorage.setItem("farmerId", Response.data[0]["id"]);
+                            sessionStorage.setItem("farmerName", Response.data[0]["name"]);
+                            sessionStorage.setItem("farmerMno", Response.data[0]["mobile"]);
+                            sessionStorage.setItem("farmerUsername", Response.data[0]["username"]);
+                            sessionStorage.setItem("farmerEmail", Response.data[0]["email"]);
+                            sessionStorage.setItem("farmerState", Response.data[0]["state"]);
+                            sessionStorage.setItem("farmerDistrict", Response.data[0]["district"]);
+                            sessionStorage.setItem("farmerTaluko", Response.data[0]["taluka"]);
+                            sessionStorage.setItem("farmerVillage", Response.data[0]["village"]);
+                            sessionStorage.setItem("farmerPincode", Response.data[0]["pincode"]);
+                        }
+                    },
+                    error: (Response) => {
+                        console.log(Response);
                     }
-                },
-                error: (Response) => {
-                    console.log(Response);
-                }
-            })
-           }
+                })
+            }
         }
     </script>
 </body>
