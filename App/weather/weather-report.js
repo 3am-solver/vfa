@@ -10,7 +10,6 @@ let cityname,
   pressure,
   visibility,
   sunrise,
-  hoursOfLight,
   sunset,
   feelsLike,
   windDirection,
@@ -64,7 +63,7 @@ window.addEventListener("load", () => {
         .then((data) => {
           console.log(data);
           // Converting unix date to Local Date
-          const unixTime = data.dt;
+          let unixTime = data.dt;
           date = new Date(unixTime * 1000);
           console.log(date);
           // Getting Data from API Response
@@ -72,8 +71,10 @@ window.addEventListener("load", () => {
           temperature = data.main["temp"];
           pressure = data.main["pressure"];
           visibility = data.visibility;
-          sunrise = data.sys["sunrise"];
-          sunset = data.sys["sunset"];
+          unixTime = data.sys["sunrise"];
+          sunrise = new Date(unixTime * 1000);
+          unixTime = data.sys["sunset"];
+          sunset = new Date(unixTime * 1000);
           feelsLike = data.main["feels_like"];
           windDirection = data.wind["deg"];
           windSpeed = data.wind["speed"];
@@ -83,25 +84,22 @@ window.addEventListener("load", () => {
           // Get open weather ICons From here
           // http://openweathermap.org/img/w/01n.png
 
-          // Formating Date
-          $("#date .day").text(weekday[d.getDay()]);
-          $("#date .date").text(d.getDate());
-          $("#date .month").text(month[d.getMonth()]);
-          $("#date .year").text(d.getFullYear());
-          // Date Formating Ends Here
+          $("#date").text(weekday[d.getDay()] + ", " +d.getDate() + "/" + month[d.getMonth()] + "/" + d.getFullYear());
 
-          $("#location span").text(cityname);
-          $("#icon-temp p").text(weatherState);
-          $("#ctb").text(temperature);
+          $(".location").text(cityname);
+          $("#desc").text(weatherState);
+          $("#temp").text(temperature);
           $("#hd").text(humanity);
           $("#pd").text(pressure);
           $("#vd").text(visibility);
-          $("#srd").text(sunrise);
-          $("#td").text(hoursOfLight);
-          $("#ssd").text(sunset);
+          // $("#srd").text(sunrise);
+          // $("#ssd").text(sunset);
           $("#cd").text(feelsLike);
           $("#dd").text(windDirection);
           $("#sd").text(windSpeed);
+          $("#max").text(data.main["temp_max"]);
+          $("#min").text(data.main["temp_min"]);
+          $("#rain").text(data.rain["1h"]);
         });
     });
   }

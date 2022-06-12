@@ -1,0 +1,61 @@
+.card {
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    background-color: white; 
+}
+
+.card>h2{
+    font-size: 1.2rem;
+}
+
+.feed-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-top>div {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.feed-body {
+    display: flex;
+}
+
+.feed-body img {
+    width: 50%;
+    height: fit-content;
+    margin-right: 10px;
+    border-radius: 0.5rem;
+}
+
+.feed-body p {
+    font-size: 0.8rem;
+}
+
+summary::marker {
+    color: var(--color-primary);
+}
+
+.card>span {
+    margin-top: 10px;
+}
+
+.liked {
+    transition: all 400ms ease;
+    color: red;
+}
+
+@media only screen and (max-width: 500px){
+    .feed-body{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .feed-body>img{
+        width: 100%;
+    }
+}

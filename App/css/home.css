@@ -140,6 +140,7 @@ main .cards small {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  padding-top: 3rem;
 }
 
 .date-of-sowing > div > input[type="date"] {
@@ -147,9 +148,9 @@ main .cards small {
   outline: none;
   border: none;
   border-radius: 2rem;
-  padding: 0.5rem;
+  padding: 0.5rem; 
   margin: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 .crop-add-btn {
@@ -191,7 +192,6 @@ main .cards small {
   background-color: #fdf8e1;
   border-radius: 0.6rem;
   padding: 0.5rem;
-  margin-top: 16rem;
 }
 .note-body {
   padding: 0.5rem;
@@ -225,136 +225,12 @@ main .cards small {
   width: 100px;
 }
 
-/* farm-details Section */
-.farm-details {
-  width: 100vw;
-  background-color: var(--color-white);
-}
-
-.farm-details nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 70px;
-  align-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: white;
-  border-bottom: 2px black;
-}
-
-.farm-nav-right {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: center;
-}
-
-.farm-nav-right > img {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 2rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
-}
-
-.farm-nav-left {
-  font-size: 3rem;
-  padding: 1rem;
-  justify-content: end;
-}
-
-.farm-btn-tab {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.tab-btn {
-  background-color: white;
-  border-radius: 1rem;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid green;
-  cursor: pointer;
-}
-
-.farm-body {
-  padding: 0.5rem;
-  margin-top: 1rem;
-  background-color: var(--color-background);
-}
-
-.farm-card {
-  width: 95vw;
-  border-radius: 1rem;
-  box-shadow: 0px 1px 5px var(--box-shadow);
-  padding: 0.5rem;
-  background-color: var(--color-white);
-  color: black;
-  margin: 0 auto;
-}
-
-.farm-card > progress {
-  width: 100%;
-  padding: 1rem;
-}
-
-.farm-card-top {
-  display: flex;
-  align-items: center;
-}
-
-.farm-card-top > img {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 2rem;
-  margin-right: 1rem;
-}
-
-.farm-card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.farm-profit-card {
-  width: 90vw;
-  margin: 0 auto;
-  border: 2px solid green;
-  background-color: var(--color-white);
-  border-radius: 2rem;
-  padding: 1rem;
-}
-
-.farm-faq {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: var(--color-light);
-  margin-top: 0.5rem;
-  width: 96vw;
-  border-radius: 1rem;
-  margin: 0 auto;
-}
-
-.faq-question-card {
-  display: flex;
-  align-items: center;
-  border-bottom: 3px solid var(--color-white);
-  width: 98vw;
-  margin: 5px auto;
-  padding: 0.4rem;
-  overflow: hidden;
-}
-
-.faq-body h2{
-  font-size: 1.2rem;
+/* Media Queries */
+@media only screen and (max-width: 425px) {
+  .crop-gallary {
+    grid-template-columns: 30% 30% 30%;
+  }
+  .crop-add{
+    padding-top: 2rem;
+  }
 }

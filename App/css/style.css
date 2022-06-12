@@ -1,7 +1,7 @@
 @import url("google-api-fonts.css");
 /* Root Variables */
 :root {
-  --color-primary: #ffbb55;
+  --color-primary: #5f6dec;
   /* --color-primary: #56f80b; */
   --color-danger: #ff7782;
   --color-success: #41f1b6;
@@ -55,11 +55,11 @@ a {
   color: var(--color-dark);
   text-decoration: none;
 }
-
+ 
 img {
   display: block;
   width: 100%;
-  height: 100% !important;
+  height: 100%;
 }
 
 h1 {

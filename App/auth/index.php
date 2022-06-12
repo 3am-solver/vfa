@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['userlogin'])) {
-    echo "<script> document.location = '../home';</script>";
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -324,7 +317,7 @@ if (isset($_SESSION['userlogin'])) {
                     console.log("Performing Ajax Request... ");
                     $.post({
                         url: "register.php",
-                        data: $("#register-form").serialize(),
+                        data: $("#register-form").serialize(), 
                         success: (response) => {
                             console.log(response);
                             sessionStorage.setItem("userLoggedin", response.status);

@@ -7,14 +7,13 @@ $(document).ready(function () {
   const sidemenu = document.querySelector("aside");
   const menuBtn = document.querySelector("#menu-btn");
   const closeBtn = document.querySelector("#close-btn");
-  const link = "http://localhost/vfa";
   menuBtn.addEventListener("click", () => {
     sidemenu.style.display = "block";
   });
 
   closeBtn.addEventListener("click", () => {
     sidemenu.style.display = "none";
-  });
+  }); 
   // setting Active class on sidebar
   current_link = window.location.href;
   // console.log(current_link);
@@ -27,12 +26,25 @@ $(document).ready(function () {
   if (current_link == "http://localhost/vfa/App/account/") {
     $("#account").addClass("active");
   }
-  if (current_link == "http://localhost/vfa/App/community/") {
-    $("#community").addClass("active");
+  if (current_link == "http://localhost/vfa/App/feeds/") {
+    $("#feeds").addClass("active");
   }
-  if (current_link == "http://localhost/vfa/App/blog/") {
-    $("#blog").addClass("active");
+  if (current_link == "http://localhost/vfa/App/krishi-book/") {
+    $("#krishi-books").addClass("active");
   }
+  if (current_link == "http://localhost/vfa/App/settings/") {
+    $("#settings").addClass("active");
+  }
+  if (current_link == "http://localhost/vfa/App/faq/") {
+    $("#faq").addClass("active");
+  }
+  if (current_link == "http://localhost/vfa/App/terms/") {
+    $("#terms").addClass("active");
+  }
+  if (current_link == "http://localhost/vfa/App/policy/") {
+    $("#policy").addClass("active");
+  }
+
 
   // Toggeling Select New Crop Section
   $("#add-new-farm-data").click(() => {

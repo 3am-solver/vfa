@@ -2,7 +2,7 @@
 require("../connection/conn.php");
 $msg = null;
 
-if(isset($_SESSION['adminLogin']) != true){
+if (isset($_SESSION['adminLogin']) != true) {
     echo "<script> document.location = 'index.php';</script>";
 }
 // If upload button is clicked ...
@@ -14,7 +14,7 @@ if (isset($_POST['upload'])) {
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     // Location of Image File where it can be Saved 
-    $folder = $imgl ."upload/blog/". $filename;
+    $folder = $imgl . "upload/krishi-book/" . $filename;
     try {
         $sql = "INSERT INTO blogs (title, content, thumbnail) VALUES ('$crop_name', '$crop_desc', '$filename')";
         if ($crop_name != null || $_FILES["uploadfile"]["name"] != null) {
@@ -24,12 +24,10 @@ if (isset($_POST['upload'])) {
                 // Now let's move the uploaded image into the folder: image
                 if ($result) {
                     $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Success! </strong> Blog published succesfully... <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
-                }
-                else{
+                } else {
                     $msg = '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>Warning ! </strong> Publishing Failed...<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
                 }
-            }
-            else{
+            } else {
                 $msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error ! </strong> Image not Uploaded <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>';
             }
         } else {
@@ -40,7 +38,7 @@ if (isset($_POST['upload'])) {
         }
     } catch (Exception $ex) {
         $msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Exception! </strong> Failed to publish blog. Error: '. $ex->getMessage(). '
+        <strong>Exception! </strong> Failed to publish blog. Error: ' . $ex->getMessage() . '
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
     }
@@ -55,7 +53,7 @@ if (isset($_POST['upload'])) {
 
 <head>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <?php include('../header.php'); ?>
+    <?php include('../include/header.php'); ?>
     <style>
         /* .add-container{
             display: flex;
@@ -64,10 +62,11 @@ if (isset($_POST['upload'])) {
             flex-direction: column;
             width: 100%;
         } */
-        .alert{
+        .alert {
             width: 90%;
             margin: 10px auto;
         }
+
         form {
             display: flex;
             flex-direction: column;
@@ -173,7 +172,7 @@ if (isset($_POST['upload'])) {
 
         }
     </style>
-</head> 
+</head>
 
 
 <body>
@@ -185,23 +184,13 @@ if (isset($_POST['upload'])) {
 
         <!-- ========================= Main ==================== -->
         <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <!--user img-->
-                <!-- <h4 class="adminName">kanjariya rahul</h4> -->
-                <div class="user">
-                <img src="../image/customer01.jpg">
-                </div>
-                <div>
-                <span class=""><?=$_SESSION['adminName'] ?></span>
-                </div>
-            </div>
-            <h1 class="Dashboard">Publish new Blog</h1>
+            <?php
+            include('../include/topbar.php');
+            ?>
+            <h1 class="Dashboard">Publish new Krishi-Book Detail</h1>
             <div class="add-container">
                 <div>
-                    <?= $msg?>
+                    <?= $msg ?>
                 </div>
                 <form method="POST" action="" enctype="multipart/form-data">
                     <label for="">Enter Blog Title: </label>

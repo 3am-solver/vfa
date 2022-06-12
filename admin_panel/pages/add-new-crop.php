@@ -1,7 +1,7 @@
 <?php
 include "../connection/conn.php";
 $msg = null;
-if(isset($_SESSION['adminLogin']) != true){
+if (isset($_SESSION['adminLogin']) != true) {
     echo "<script> document.location = 'index.php';</script>";
 }
 
@@ -12,7 +12,7 @@ if (isset($_POST['upload'])) {
     $crop_desc = $_POST["desc"];
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = $imgl ."upload/crop/". $filename;
+    $folder = $imgl . "upload/crop/" . $filename;
     try {
         $sql = "INSERT INTO crop (name, description, image) VALUES ('$crop_name', '$crop_desc', '$filename')";
 
@@ -48,7 +48,7 @@ if (isset($_POST['upload'])) {
 
 <head>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <?php include('../header.php'); ?>
+    <?php include('../include/header.php'); ?>
     <style>
         /* .add-container{
             display: flex;
@@ -57,10 +57,11 @@ if (isset($_POST['upload'])) {
             flex-direction: column;
             width: 100%;
         } */
-        .alert{
+        .alert {
             width: 90%;
             margin: 10px auto;
         }
+
         form {
             display: flex;
             flex-direction: column;
@@ -166,7 +167,7 @@ if (isset($_POST['upload'])) {
 
         }
     </style>
-</head> 
+</head>
 
 
 <body>
@@ -178,23 +179,13 @@ if (isset($_POST['upload'])) {
 
         <!-- ========================= Main ==================== -->
         <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <!--user img-->
-                <!-- <h4 class="adminName">kanjariya rahul</h4> -->
-                <div class="user">
-                <img src="../image/customer01.jpg">
-                </div>
-                <div>
-                <span class=""><?=$_SESSION['adminName'] ?></span>
-                </div>
-            </div>
+            <?php
+            include('../include/topbar.php');
+            ?>
             <h1 class="Dashboard">Add New Crop</h1>
             <div class="add-container">
                 <div>
-                    <?= $msg?>
+                    <?= $msg ?>
                 </div>
                 <form method="POST" action="" enctype="multipart/form-data">
                     <label for="">Enter Crop name: </label>

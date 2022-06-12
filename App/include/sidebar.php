@@ -1,6 +1,6 @@
 <!-- Loading Area -->
 <div class="loader-container loadHide">
-    <div class="lprogress float shadow"> 
+    <div class="lprogress float shadow">
         <div class="progress__item"></div>
     </div>
 </div>
@@ -23,11 +23,11 @@
             </span>
             <h2>Home</h2>
         </a>
-        <a href="../community" class="sidebarA" id="community">
+        <a href="../feeds" class="sidebarA" id="feeds">
             <span class="material-icons-sharp">
                 hub
             </span>
-            <h2>Community</h2>
+            <h2>feeds</h2>
         </a>
         <a href="../weather" class="sidebarA" id="weather">
             <span class="material-icons-sharp">
@@ -41,11 +41,38 @@
             </span>
             <h2>Account</h2>
         </a>
-        <a href="../blog" class="sidebarA" id="blog">
+        <a href="../krishi-book" class="sidebarA" id="krishi-books">
             <span class="material-icons-sharp">
-                rss_feed
+                local_library
             </span>
-            <h2>Blogs</h2>
+            <h2>Krishi Book</h2>
         </a>
+        <a href="../settings" class="sidebarA" id="settings">
+            <span class="material-icons-sharp">
+                settings
+            </span>
+            <h2>Settings</h2>
+        </a>
+        <a href="../faq/" class="sidebarA" id="faq">
+            <span class="material-icons-sharp">
+            quiz
+            </span>
+            <h2>FAQ</h2>
+        </a>
+        <a href="../terms/" class="sidebarA" id="terms">
+            <span class="material-icons-sharp">
+            gavel
+            </span>
+            <h2>Terms</h2>
+        </a>
+        <a href="../policy/" class="sidebarA" id="policy">
+            <span class="material-icons-sharp">
+                policy
+            </span>
+            <h2>Privacy Policy</h2>
+        </a>
+        <p class="text-muted" style="text-align: center;">
+            Virsion 1.9.8
+        </p>
     </div>
 </aside>

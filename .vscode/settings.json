@@ -18,7 +18,8 @@
         "readme": true,
         "App-v4": true,
         "App-v5": true,
-        "ajax": true
+        "ajax": true,
+        "desktop.ini": true
     },
     "hide-files.files": [
         "App-v3",
@@ -29,6 +30,7 @@
         "readme",
         "App-v4",
         "App-v5",
-        "ajax"
+        "ajax",
+        "desktop.ini"
     ]
 }

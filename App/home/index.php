@@ -54,7 +54,7 @@ require("../connection/conn.php");
 
         .img-fluid {
             max-width: 100%;
-            height: auto;
+
         }
 
         .cat {
@@ -102,11 +102,20 @@ require("../connection/conn.php");
         }
 
         /* Display None */
-        .add-water-level{
+        .add-water-level {
             display: none;
         }
-        .add-soil-type{
+
+        .add-soil-type {
             display: none;
+        }
+        @media only screen and (max-width: 500px){
+            .row{
+                flex-direction: column;
+            }
+            .col-md-4{
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -131,7 +140,7 @@ require("../connection/conn.php");
                         <span class='material-icons-sharp'>auto_graph</span>
                         <div class='left' style='width: 100%;margin: 0.8rem;'>
                             <h3>Crop Name</h3>
-                            <h1>Current Stage of Palant</h1>
+                            <h1>Current Stage of Plant</h1>
                         </div>
                         <div class='progress'>
                             <svg>
@@ -142,12 +151,12 @@ require("../connection/conn.php");
                             </div>
                         </div>
                     </div>
-                </div>";
+                </div>
             </div>
             <!-- Script to open Farm Details Page -->
             <script>
                 function openFarmDetail() {
-                    window.location.href = 'farm-detail.php'
+                    window.location.href = 'farm-detail.php';
                 }
             </script>
         </main>
@@ -169,12 +178,6 @@ require("../connection/conn.php");
                 }
                 ?>
                 <input type="hidden" name="crop-id" id="crop-id" value="null">
-                <script>
-                    // Getting Selected Crop Id
-                    function reply_click(clicked_id) {
-                        $("#crop-id").val(clicked_id);
-                    }
-                </script>
             </div>
         </div>
         <!-- select-crop-section Ends -->
@@ -261,17 +264,117 @@ require("../connection/conn.php");
                     <div class="bcard mb-3" style="max-width: 540px;">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="../img/carousel-image03.jpg" class="img-fluid rounded-start" alt="...">
+                                <img src="../img/soil/black soil.jpg" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h2>Soil Type</h2>
+                                    <h2> black Soil</h2>
                                     <h4 class="card-text text-muted">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat, eaque officia ex minus harum voluptate repudiandae optio id reprehenderit!
+                                        Black soil is also known as “Regur Soil” or the “Black Cotton Soil”. It covers about 15% of the total land area of the country.
                                     </h4>
                                     <div class="cat action">
                                         <label>
-                                            <input type="checkbox" name="soil" value="1"><span>Select</span>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/soil/red soil.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2> red Soil</h2>
+                                    <h4 class="card-text text-muted">
+                                        Red soils denote the largest soil group of India, covering an area of about 350,000 sq.km (10.6% of India's area) across the Peninsula.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/soil/Alluvial-Soils.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2> Alluvial soil</h2>
+                                    <h4 class="card-text text-muted">
+                                        Alluvial soils are widespread in the northern plains and river valleys.It covers about 40% of the total land area of the country.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/soil/arid desert soil1.avif" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>Arid desert soil</h2>
+                                    <h4 class="card-text text-muted">
+                                        Arid soils contain a substantial amount of soluble salts. It is alkaline in nature because there is no rain to wash soluble salts. These soils are very infertile in nature.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/soil/laterite soil.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>Laterite soil</h2>
+                                    <h4 class="card-text text-muted">
+                                        Laterite is both a soil and a rock type rich in iron and aluminium and is commonly considered to have formed in hot and wet tropical areas.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/soil/forest-soils-1.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>Forest soil</h2>
+                                    <h4 class="card-text text-muted">
+                                        Forests soils are found in the hilly and mountainous areas where sufficient rainforests are available.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="soil" value="value of soil"><span>Select</span>
                                         </label>
                                     </div>
                                 </div>
@@ -330,6 +433,69 @@ require("../connection/conn.php");
                             </div>
                         </div>
                     </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/water source/surface water.jpg" class="img-fluid rounded-start" alt="water-source">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>surface water Source</h2>
+                                    <h4 class="card-text text-muted">
+                                        Surface water is any body of water above ground, including streams, rivers, lakes, wetlands, reservoirs, and creeks. The ocean, despite being saltwater, is also considered surface water.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="water" value="value of water"><span>Select</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/water source/canal water source.webp" class="img-fluid rounded-start" alt="water-source">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>canal water Source</h2>
+                                    <h4 class="card-text text-muted">
+                                        The water for the canal must be provided from an external source, like streams or reservoirs. Where the new waterway must change elevation engineering works like locks, lifts or elevators are constructed to raise and lower vessels.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="water" value="value of water"><span>Select</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../img/water source/rain water.webp" class="img-fluid rounded-start" alt="water-source">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2>rain water Source</h2>
+                                    <h4 class="card-text text-muted">
+                                        Rainwater is harvested from roofs via guttering into storage tanks and may be contaminated, particularly in the 'first flush' after a dry period, by detritus that has collected on the roof, for instance leaves, insects or more importantly bird faeces.
+                                    </h4>
+                                    <div class="cat action">
+                                        <label>
+                                            <input type="checkbox" name="water" value="value of water"><span>Select</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
@@ -358,17 +524,23 @@ require("../connection/conn.php");
 
     <script src="../js/index.js"></script>
     <script>
-        function addFarm(){
+        function addFarm() {
             $.post({
+                // When Crop info are added then only I can able to add new Farm Details 
                 url: "addFarm.php",
                 data: $("#add-farm-form").serialize(),
-                success: (response)=>{
+                success: (response) => {
                     console.log(response);
                 },
-                error: (response)=>{
+                error: (response) => {
                     console.log(response);
                 }
             })
+        }
+        
+        // Getting Selected Crop Id
+        function reply_click(clicked_id) {
+            $("#crop-id").val(clicked_id);
         }
     </script>
 </body>

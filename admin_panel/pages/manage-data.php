@@ -1,6 +1,6 @@
 <?php
 include "../connection/conn.php";
-if(isset($_SESSION['adminLogin']) != true){
+if (isset($_SESSION['adminLogin']) != true) {
     echo "<script> document.location = 'index.php';</script>";
 }
 ?>
@@ -8,7 +8,7 @@ if(isset($_SESSION['adminLogin']) != true){
 <html lang="en">
 
 <head>
-    <?php include('../header.php'); ?>
+    <?php include('../include/header.php'); ?>
     <style>
         .card {
             padding: 0.7rem;
@@ -48,19 +48,9 @@ if(isset($_SESSION['adminLogin']) != true){
 
         <!-- ========================= Main ==================== -->
         <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <!--user img-->
-                <!-- <h4 class="adminName">kanjariya rahul</h4> -->
-                <div class="user">
-                <img src="../image/customer01.jpg">
-                </div>
-                <div>
-                <span class=""><?=$_SESSION['adminName'] ?></span>
-                </div>
-            </div>
+            <?php
+            include('../include/topbar.php');
+            ?>
             <h1 class="Dashboard">Manage Data</h1>
             <div class="cardBox">
                 <div class="card">

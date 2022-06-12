@@ -1,0 +1,68 @@
+.crop-gallary {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 1rem;
+}
+
+.crop-item {
+  color: var(--color-primary);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.crop-item > img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.crop-item > h2 {
+  font-size: large;
+}
+
+.crop-data {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.select-dieses {
+  display: none;
+}
+
+.disease-gallary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.d-item {
+  box-shadow: var(--box-shadow);
+  background-color: white;
+  padding: 0.5rem;
+  height: max-content;
+  border-radius: 1rem;
+}
+
+.d-item > img {
+  border-radius: 1rem;
+}
+
+.d-item > h4 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .disease-gallary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

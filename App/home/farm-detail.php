@@ -1,3 +1,6 @@
+<?php
+require("../connection/conn.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,95 +10,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VFA @Virtual Farming Assistant APP</title>
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/farm-detail.css">
+    <link rel="stylesheet" href="../css/faq.css">
     <?php include('../include/base-css.php'); ?>
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <!-- Farm Details Section -->
-    <div class="farm-details">
-        <nav>
-            <div class="farm-nav-right">
-                <span class="material-icons-sharp back-btn" onclick="window.location.href='index.php'">keyboard_backspace</span>
-                <img src="../img/carousel-image03.jpg" alt="crop-image">
-                <h2>Crop Name</h2>
-            </div>
-            <div class="farm-nav-left">
-                <span class="material-icons-sharp">
-                    refresh
-                </span>
-                <span class="material-icons-sharp">
-                    help
-                </span>
-            </div>
-        </nav>
-        <div class="farm-btn-tab">
-            <div class="tab-btn">
-                <span class="material-icons-sharp" style="margin-right: 0.2rem;">
-                    agriculture
-                </span>
-                <h2>Farm Details</h2>
-            </div>
-            <div class="tab-btn" onclick="window.location.href='crop-info.php'">
-                <span class="material-icons-sharp" style="margin-right: 0.2rem;">
-                    menu_book
-                </span>
-                <h2>Crop Details</h2>
-            </div>
-        </div>
-        <div class="farm-body">
-            <h1 style="font-size: 1.4rem;">Weather Based Activities</h1>
-            <div class="farm-card">
-                <div class="farm-card-top">
-                    <img src="../img/bg.jpg" alt="Crop image">
-                    <div>
-                        <h2>Crop Name</h2>
-                        <small class="text-muted">Sowed on : 13/09/2002</small>
+    <div class="container">
+        <?php include('../include/sidebar.php'); ?>
+        <main>
+            <h1>Farm Details</h1>
+
+            <!-- Weather Based Activities -->
+            <div class="card">
+                <h2 style="text-align: center;">Weather based Activities</h2>
+                <!-- Activity Card Start from here -->
+                <div class="w-card">
+                    <div class="top">
+                        <span class="info">Activity alert : [Some Messege]</span>
+                        <span class="activity-date">14-sept-2002</span>
+                    </div>
+                    <div class="middle">
+                        <img src="../img//carousel-image04.jpg" alt="Activity Image">
+                        <div>
+                            <h2>Crop Name</h2>
+                            <h3>Sowing Date: 14/09/2002</h3>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <details>
+                            <summary>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos delectus
+                                veritatis pariatur molestiae maxime praesentium laborum tenetur repellat velit!
+                            </summary>
+                            <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                international pavilions, award-winning fireworks and seasonal special events.</p>
+                        </details>
                     </div>
                 </div>
-                <div class="farm-card-body">
-                    <h2 style="width: 70%; font-size: 0.9rem;" class="text-muted">Save your Seeding information about your farm</h2>
-                    <a href="#" class="tab-btn">View more</a>
-                </div>
-            </div>
-        </div>
-        <div class="farm-profit-calculator">
-            <div class="farm-card">
-                <div class="farm-card-top">
-                    <img src="../img/bg.jpg" alt="Crop image">
-                    <div>
-                        <h2 style="font-size: 1rem;">If for 1 acre Onion farm, your Farm income is: </h2>
+                <!-- Activity Card Ends Here -->
+                <div class="w-card">
+                    <div class="top">
+                        <span class="info">Activity alert : [Some Messege]</span>
+                        <span class="activity-date">14-sept-2002</span>
+                    </div>
+                    <div class="middle">
+                        <img src="../img//carousel-image04.jpg" alt="Activity Image">
+                        <div>
+                            <h2>Crop Name</h2>
+                            <h3>Sowing Date: 14/09/2002</h3>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <details>
+                            <summary>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos delectus
+                                veritatis pariatur molestiae maxime praesentium laborum tenetur repellat velit!
+                            </summary>
+                            <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                international pavilions, award-winning fireworks and seasonal special events.</p>
+                        </details>
                     </div>
                 </div>
-                <progress min='0' max='100' value='50'></progress>
-                <div class="farm-profit-card">
-                    <h2 style="text-align: center;">Then with VFA it can be 20% More</h2>
+            </div>
+            <!-- Weather Based Activities Ends Here -->
+            <!-- Profit calculator Card -->
+            <div class="card">
+                <h2>If for 1 Acre [CROP_NAME] farm, your farm income is</h2>
+                <div class="range-card">
+                    <div class="rangeslider__ruler">
+                        <input type="range" min="25000" max="250000" step="100000">
+                    </div>
+                    <div class="range">
+                        <h2>
+                            Then with VFA it can be
+                        </h2>
+                        <h1>&#8377; 30,000</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="farm-faq">
-            <h1 style="text-align: center; width:100%; font-size:1.5rem; color:var(--color-primary);">Frequently Asked Question</h1>
-            <div class="faq-question-card">
-                <div class="faq-series">
-                    <span style="padding: 1rem; border-radius:2rem; border:1px solid; margin:0.5rem;">1</span>
-                </div>
-                <div class="faq-body">
-                    <h2 style="color: var(--color-success);">How to prevent thrips in onion?</h2>
-                    <p>Use neem coated urea to reduce the infestation of the pest</p>
+            <!-- Profit Calculator Card Ends Here -->
+
+            <!-- FAQ Card  -->
+            <div class="card">
+                <div class="faq">
+                    <!-- Inside PHP Block -->
+                    <button class="accordion">Section 1</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <!-- PHP Block Ends Here -->
+
+                    <button class="accordion">Section 2</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                    <button class="accordion">Section 3</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
                 </div>
             </div>
-            <div class="faq-question-card">
-                <div class="faq-series">
-                    <span style="padding: 1rem; border-radius:2rem; border:1px solid; margin:0.5rem;">1</span>
-                </div>
-                <div class="faq-body">
-                    <h2 style="color: var(--color-success);">How to prevent thrips in onion?</h2>
-                    <p>Use neem coated urea to reduce the infestation of the pest</p>
-                </div>
-            </div>
-        </div>
+            <!-- FAQ Card Ends Here -->
+        </main>
+        <?php include('../include/right-section.php'); ?>
+        <script src="../js/index.js"></script>
+        <!-- Range Slider Script -->
+        <script>
+            var $r = $('input[type="range"]');
+            var $ruler = $('<div class="rangeslider__ruler">');
+
+            // Initialize
+            $r.rangeslider({
+                polyfill: false,
+                onInit: function() {
+                    $ruler[0].innerHTML = getRulerRange(this.min, this.max, this.step);
+                    this.$range.prepend($ruler);
+                }
+            });
+
+            function getRulerRange(min, max, step) {
+                var range = '';
+                var i = 0;
+
+                while (i <= max) {
+                    range += i + ' ';
+                    i = i + step;
+                }
+                return range;
+            }
+        </script>
+        <!-- Range Slider Script Ends Here -->
+        <!-- FAQ Card Script -->
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+        <!-- FAQ Card Scipt Ends Here -->
     </div>
-    <!-- Farm Details Section Ends here -->
-    <script src="../js/index.js"></script>
 </body>
 
 </html>

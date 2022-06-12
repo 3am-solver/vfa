@@ -15,7 +15,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="../pages/manage-farmers.php">
                 <span class="material-icons-sharp icon">
                     agriculture
                 </span>
@@ -47,7 +47,7 @@
             </a>
         </li>
         <li>
-            <a href="index.php?logout=true">
+            <a href="../index.php?logout=true">
                 <span class="material-icons-sharp icon">
                     logout
                 </span>
